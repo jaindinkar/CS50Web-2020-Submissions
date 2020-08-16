@@ -1,0 +1,49 @@
+{% extends "auctions/layout.html" %}
+
+{% load static %}
+
+{% block body %}
+
+	
+
+	<!----------------------- Featured-categories ------------------------>
+
+    <section class="featured-categories">
+
+        <div class="container">
+
+        	<div class="grey-box">
+
+	        	<div class="title-box">
+	                
+	                <h2>Featured Categories</h2> 
+
+	            </div> <!-- title-box -->
+
+	        </div> <!-- grey-box -->
+
+
+            
+            <div class="row">
+
+            	{% for category in categories %}
+
+	                <form action="{% url 'categories' category %}" method="post">
+						{% csrf_token %}
+												
+						<!-- <button name="foo" value="upvote">Upvote</button> -->
+						<button name="foo" value="{{ category }}" type="submit" class="btn btn-primary" style="margin-right: 20px;">{{ category }}</button>
+
+					</form>
+
+				{% endfor %}
+                
+            </div>
+
+        </div>
+        
+    </section>
+
+
+
+{% endblock %}
