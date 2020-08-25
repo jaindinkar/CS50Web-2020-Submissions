@@ -1,0 +1,4 @@
+JSON : Java-Script Object Notation
+APIs : Application Programming Interface
+
+A-JAX : Asynchronous Java-Script
