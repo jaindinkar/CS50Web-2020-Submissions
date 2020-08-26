@@ -13,6 +13,7 @@ This is the 3rd project in the series of 7 projects offered by CS50W 2020.
 
 ## Chief Tech Used:
 
+- Python
 - HTML 
 - CSS
 - JavaScript
