@@ -17,6 +17,8 @@ function compose_email() {
   document.querySelector('#compose-view').style.display = 'block';
 
   // Clear out composition fields
+  // I personally don't think that it is necessary. I tried commenting and running the code
+  // the fields clear themselves automatically.
   document.querySelector('#compose-recipients').value = '';
   document.querySelector('#compose-subject').value = '';
   document.querySelector('#compose-body').value = '';
