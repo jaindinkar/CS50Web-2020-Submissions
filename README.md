@@ -3,18 +3,21 @@
 
 ## Description
 
-This is the 3rd project in the series of 7 projects offered by CS50W 2020.
+This is the 3rd project in the series of 6 projects(5 Course + 1 Final) offered by CS50W 2020.
 
 
 ## Highlights:
 
-- Yet to be included.
+- Used Django framework in backend.
+- Used JavaScript for the communication with API.
+- Data is sent and received in JSON format.
+- Single page application(Taking advantage of JavaSccript).
+- HTML elements are created/modified/deleted using JavaScript DOM.
 
 
 ## Chief Tech Used:
 
 - Python
-- HTML 
+- HTML
 - CSS
 - JavaScript
-- React JS
