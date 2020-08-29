@@ -95,4 +95,17 @@ function load_mailbox(mailbox) {
 
     // Show the mailbox name
     document.querySelector('#emails-view').innerHTML = `<h3>${mailbox.charAt(0).toUpperCase() + mailbox.slice(1)}</h3>`;
+
+
+    // Add your mailbox viewing code here:
+
+    // Making API call to gather the emails by sending a GET Query '/emails/inbox'
+    fetch(`/emails/${mailbox}`)
+    .then(response => response.json())
+    .then(emails => {
+        //Print emails
+        console.log(emails);
+
+        // Display gathered mails in the given manner.
+    });
 }
