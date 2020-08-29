@@ -3,7 +3,7 @@
 
 ## Description
 
-This is the 3rd project in the series of 6 projects(5 Course + 1 Final) offered by CS50W 2020.
+This is the 4th project in the series of 6 projects(5 Course + 1 Final) offered by CS50W 2020.
 
 
 ## Highlights:
