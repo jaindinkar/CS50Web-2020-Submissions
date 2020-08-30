@@ -21,3 +21,12 @@ This is the 4th project in the series of 6 projects(5 Course + 1 Final) offered 
 - HTML
 - CSS
 - JavaScript
+
+
+## How to use:
+
+Follow these commands to execute this project properly.
+
+- Make migrations(stage your django models) <kbd>python manage.py makemigrations</kbd>
+- Migrate your models <kbd>python manage.py migrate</kbd>
+- Finally, run the project <kbd>python manage.py runserver</kbd>
