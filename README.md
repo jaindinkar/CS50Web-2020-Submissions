@@ -31,9 +31,16 @@ Follow these commands to execute this project properly.
 - Migrate your models <kbd>python manage.py migrate</kbd>
 - Finally, run the project <kbd>python manage.py runserver</kbd>
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> master
 ## Useful Links:
 
 - [JavaScript Reference and HTML DOM Reference (W3schools)](https://www.w3schools.com/jsref/default.asp)
 - [JavaScript Tutorial (W3schools)](https://www.w3schools.com/js/default.asp)
 - Some links are embedded in the code too, at special places. :scream:
+<<<<<<< HEAD
 
+=======
+>>>>>>> master
