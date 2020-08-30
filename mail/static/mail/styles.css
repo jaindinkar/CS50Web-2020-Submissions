@@ -27,3 +27,22 @@ textarea {
 .mail-sub-div-style p {
 	font-size: 10px;
 }
+
+
+.mail-main-view-div-style {
+
+	padding: 20px;
+	margin: 10px;
+	margin-top: 10px;
+	border-style: solid;
+	border-radius: 10px;
+	border-color: #0010ed;
+	border-width: 4px;
+	background-color: #d4f6ff;
+}
+
+
+.mail-main-view-div-style h5 {
+	/* To render the new line (\n) */
+	white-space: pre-line;
+}
