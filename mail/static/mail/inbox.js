@@ -95,4 +95,72 @@ function load_mailbox(mailbox) {
 
     // Show the mailbox name
     document.querySelector('#emails-view').innerHTML = `<h3>${mailbox.charAt(0).toUpperCase() + mailbox.slice(1)}</h3>`;
+
+
+    // Add your mailbox viewing code here:
+
+    // Making API call to gather the emails by sending a GET Query '/emails/inbox'
+    fetch(`/emails/${mailbox}`)
+    .then(response => response.json())
+    .then(emails => {
+        //Print emails
+        console.log(emails);
+
+        // Write code for displaying your mails in mailbox.
+
+        // Each divison shoud display: sender's name, subject line and timestamp.
+        // Unread = white background , Read = gray background.
+        
+        // JSON Data would be indexed like this. 
+        // 0: {
+        // "id": 95,
+        // "sender": "baz@example.com",
+        // "recipients": ["bar@example.com"],
+        // "subject": "Meeting Tomorrow",
+        // "body": "What time are we meeting?",
+        // "timestamp": "Jan 1 2020, 12:00 AM",
+        // "read": true,
+        // "archived": false
+        // }
+
+        // Iterating through each mail object using mail index.
+        for(var mail_index in emails) {
+
+            // Extracting the required properties from each mail object
+            if(emails.hasOwnProperty(mail_index)) {
+                var email_sender = emails[mail_index].sender;
+                var email_subject = emails[mail_index].subject;
+                var email_timestamp = emails[mail_index].timestamp;
+                var email_isRead = emails[mail_index].read;
+
+                // Creating a divison for each mail object.
+                const mail_sub_div = document.createElement('div');
+
+                // Adding the HTML content in the divisions.
+                mail_sub_div.innerHTML = `
+
+                    <h2>From: ${email_sender}</h2> 
+                    <h4>Subject: ${email_subject}</h4>
+                    <p>Time: ${email_timestamp}</p>
+
+                `;
+
+                // Setting the background color of the division using the read property of mail object.
+                if(email_isRead){
+                    // https://www.w3schools.com/JSREF/prop_style_backgroundcolor.asp
+                    // mail_sub_div.style.background = "color image repeat attachment position size origin clip|initial|inherit";
+                    mail_sub_div.style.background = "#ededed";
+                }
+                else {
+                    mail_sub_div.style.background = "#ffffff";
+                }
+
+                // Setting a class name for this division for further styling using CSS.
+                mail_sub_div.className = "mail-sub-div-style";
+
+                // Appending the divison in the element with ID emails-view.
+                document.querySelector('#emails-view').append(mail_sub_div);
+            }
+        }
+    });
 }

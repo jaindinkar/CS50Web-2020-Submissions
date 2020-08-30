@@ -1,3 +1,29 @@
 textarea {
     min-height: 400px;
 }
+
+/* Display style for message divisons at mailbox */
+.mail-sub-div-style {
+	padding: 20px;
+	margin: 10px;
+	margin-top: 10px;
+	border-style: solid;
+	border-radius: 10px;
+	border-color: grey;
+	border-width: 4px;
+}
+
+/* Display style for senders name */
+.mail-sub-div-style h2 {
+	font-size: 20px;
+}
+
+/* Display style for subject */
+.mail-sub-div-style h4 {
+	font-size: 15px;
+}
+
+/* Display style for time stamp */
+.mail-sub-div-style p {
+	font-size: 10px;
+}
