@@ -124,6 +124,7 @@ function load_mailbox(mailbox) {
         // }
 
         // Iterating through each mail object using mail index.
+        // https://stackoverflow.com/questions/19323699/iterating-through-json-object-javascript
         for(var mail_index in emails) {
 
             // Extracting the required properties from each mail object
@@ -136,7 +137,7 @@ function load_mailbox(mailbox) {
                 // Creating a divison for each mail object.
                 const mail_sub_div = document.createElement('div');
 
-                // Adding the HTML content in the divisions.
+                // Adding the HTML content in the division.
                 mail_sub_div.innerHTML = `
 
                     <h2>From: ${email_sender}</h2> 
