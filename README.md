@@ -15,9 +15,9 @@ This is the 4th project in the series of 6 projects(5 Course + 1 Final) offered 
 - HTML elements are created/modified/deleted using JavaScript DOM.
 
 
-## Chief Tech Used:
+## Languages/Frameworks Used:
 
-- Python
+- Python(Django 3.0)
 - HTML
 - CSS
 - JavaScript
