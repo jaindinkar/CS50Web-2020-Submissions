@@ -15,6 +15,7 @@ function compose_email() {
     // Show compose view and hide other views
     document.querySelector('#emails-view').style.display = 'none';
     document.querySelector('#compose-view').style.display = 'block';
+    document.querySelector('#email-view').style.display = 'none';
 
     // Clear out composition fields
     // I personally don't think that it is necessary. I tried commenting and running the code
@@ -59,6 +60,8 @@ function compose_email() {
             console.log('Error', error);
         });
 
+/*
+
         // // Approach-1 Checking if the mail is properly sent (Not Working)
         // if(result.message){
         //     // Load the sent page if message is delivered successfully.
@@ -79,7 +82,7 @@ function compose_email() {
         // }
 
         // Above approaches do not work as the result variable is not in the domain.
-
+*/
         //Prevent default submission (Important!! Otherwise the message won't log on your chrome.)
         return false;
 
@@ -92,6 +95,7 @@ function load_mailbox(mailbox) {
     // Show the mailbox and hide other views
     document.querySelector('#emails-view').style.display = 'block';
     document.querySelector('#compose-view').style.display = 'none';
+    document.querySelector('#email-view').style.display = 'none';
 
     // Show the mailbox name
     document.querySelector('#emails-view').innerHTML = `<h3>${mailbox.charAt(0).toUpperCase() + mailbox.slice(1)}</h3>`;
@@ -106,6 +110,7 @@ function load_mailbox(mailbox) {
         //Print emails
         console.log(emails);
 
+/*
         // Write code for displaying your mails in mailbox.
 
         // Each divison shoud display: sender's name, subject line and timestamp.
@@ -122,8 +127,61 @@ function load_mailbox(mailbox) {
         // "read": true,
         // "archived": false
         // }
+*/
+        // Approach-2 Iterating through each mail object using forEach method.
+        emails.forEach(function(item, mail_index, email_obj) {
+
+            // Extracting the required properties from each mail object
+            
+            var email_sender = email_obj[mail_index].sender;
+            var email_subject = email_obj[mail_index].subject;
+            var email_timestamp = email_obj[mail_index].timestamp;
+            var email_isRead = email_obj[mail_index].read;
+            var email_id = email_obj[mail_index].id;
+
+            // Creating a divison for each mail object.
+            const mail_sub_div = document.createElement('div');
+
+            // Adding the HTML content in the division.
+            mail_sub_div.innerHTML = `
+
+                <h2>From: ${email_sender}</h2> 
+                <h4>Subject: ${email_subject}</h4>
+                <p>Time: ${email_timestamp}</p>
+
+            `;
+
+            // Setting the background color of the division using the read property of mail object.
+            if(email_isRead){
+                // https://www.w3schools.com/JSREF/prop_style_backgroundcolor.asp
+                // mail_sub_div.style.background = "color image repeat attachment position size origin clip|initial|inherit";
+                mail_sub_div.style.background = "#ededed";
+            }
+            else {
+                mail_sub_div.style.background = "#ffffff";
+            }
+
+            // Setting a class name for this division for further styling using CSS.
+            mail_sub_div.className = "mail-sub-div-style";
+
+            // Setting an eventListener to this element, when clicked.
+            // This function works well with forEach method.
+            mail_sub_div.addEventListener('click', function() {
+                // When this element it clicked following code is executed.
+                console.log(`Mail with id ${email_id} is clicked.`)
+                // Call the load_mail function to view the mail in separate section.
+                load_mail(email_id);
+            })
+
+            // Appending the divison in the element with ID emails-view.
+            document.querySelector('#emails-view').append(mail_sub_div);
+            
+        })
+
+/*
 
         // Iterating through each mail object using mail index.
+        // https://stackoverflow.com/questions/19323699/iterating-through-json-object-javascript
         for(var mail_index in emails) {
 
             // Extracting the required properties from each mail object
@@ -132,11 +190,12 @@ function load_mailbox(mailbox) {
                 var email_subject = emails[mail_index].subject;
                 var email_timestamp = emails[mail_index].timestamp;
                 var email_isRead = emails[mail_index].read;
+                var email_id = emails[mail_index].id;
 
                 // Creating a divison for each mail object.
                 const mail_sub_div = document.createElement('div');
 
-                // Adding the HTML content in the divisions.
+                // Adding the HTML content in the division.
                 mail_sub_div.innerHTML = `
 
                     <h2>From: ${email_sender}</h2> 
@@ -158,9 +217,94 @@ function load_mailbox(mailbox) {
                 // Setting a class name for this division for further styling using CSS.
                 mail_sub_div.className = "mail-sub-div-style";
 
+                // Setting an eventListener to this element, when clicked.
+                // This function does not correctly work with for loop but works good with forEach function.
+                mail_sub_div.addEventListener('click', function() {
+                    // When this element it clicked following code is executed.
+                    console.log(`Mail with id ${email_id} is clicked.`)
+
+                })
+
                 // Appending the divison in the element with ID emails-view.
                 document.querySelector('#emails-view').append(mail_sub_div);
             }
         }
+*/
     });
 }
+
+
+// Adding a new function to show the email.
+function load_mail(mail_id) {
+
+    // Show the selected email and hide other views
+    document.querySelector('#emails-view').style.display = 'none';
+    document.querySelector('#compose-view').style.display = 'none';
+    document.querySelector('#email-view').style.display = 'block';
+
+    // Clearing the previous stale content.
+    document.querySelector('#email-view').innerHTML = "";
+
+
+    // Marking the clicked email as read. PUT request through API.
+    fetch(`/emails/${mail_id}`, {
+        method: 'PUT',
+        body: JSON.stringify({
+            read: true
+        })
+    })
+
+
+    // Fetch the requested mail data by querying the API
+    fetch(`/emails/${mail_id}`)
+    .then(response => response.json())
+    .then(email => {
+        // Print email at console.
+        console.log(email);
+
+        // Further code is placed here.
+
+        // Required parameters: Show the email’s sender, recipients, subject, timestamp, and body.
+        var email_sender = email.sender;
+        var email_recipients = email.recipients;
+        var email_subject = email.subject;
+        var email_timestamp = email.timestamp;
+        var email_body = email.body;
+
+
+        // Creating a divison for placing content of requested mail.
+        const mail_view_div = document.createElement('div');
+
+        // Adding the HTML content in the division.
+        mail_view_div.innerHTML = `
+
+            <h2>From: ${email_sender}</h2> 
+            <h2>Recipients: ${email_recipients}</h2>
+            <h4>Subject: ${email_subject}</h4>
+            <p>Time: ${email_timestamp}</p>
+            <h5>Body:</h5>
+            <h5>${email_body}</h5>
+
+        `;
+
+
+        // Setting a class name for this division for further styling using CSS.
+        mail_view_div.className = "mail-main-view-div-style";
+
+        // // Setting an eventListener to this element, when clicked.
+        // // This function works well with forEach method.
+        // mail_view_div.addEventListener('click', function() {
+        //     // When this element it clicked following code is executed.
+        //     console.log(`Mail with id ${email_id} is clicked.`)
+        //     // Call the load_mail function to view the mail in separate section.
+        //     load_mail(email_id);
+        // })
+
+        
+        // Appending the new content
+        document.querySelector('#email-view').append(mail_view_div);
+
+    })
+
+}
+
