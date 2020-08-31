@@ -37,4 +37,5 @@ Follow these commands to execute this project properly.
 - [JavaScript Reference and HTML DOM Reference (W3schools)](https://www.w3schools.com/jsref/default.asp)
 - [JavaScript Tutorial (W3schools)](https://www.w3schools.com/js/default.asp)
 - Some links are embedded in the code too, at special places. :scream:
+- [Scheduling: setTimeout and setInterval (javascript.info)](https://javascript.info/settimeout-setinterval)
 
