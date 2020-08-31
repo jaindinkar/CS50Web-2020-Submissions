@@ -3,12 +3,12 @@
 
 ## Description
 
-This is the 4th project in the series of 6 projects(5 Course + 1 Final) offered by CS50W 2020.
+This is the 4th project in the series of 6 projects(5 Course + 1 Final) offered by CS50W 2020. The project mostly focused on the JavaScipt.
 
 
 ## Highlights:
 
-- Used Django framework in backend.
+- Given Django framework in backend, API is prewritten in the project.
 - Used JavaScript for the communication with API.
 - Data is sent and received in JSON format.
 - Single page application(Taking advantage of JavaSccript).
