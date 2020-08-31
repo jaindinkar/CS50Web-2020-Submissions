@@ -97,6 +97,9 @@ function load_mailbox(mailbox) {
     document.querySelector('#compose-view').style.display = 'none';
     document.querySelector('#email-view').style.display = 'none';
 
+    // Clear the mailbox area of stale content.
+    document.querySelector('#emails-view').innerHTML = "";
+
     // Show the mailbox name
     document.querySelector('#emails-view').innerHTML = `<h3>${mailbox.charAt(0).toUpperCase() + mailbox.slice(1)}</h3>`;
 
@@ -170,7 +173,7 @@ function load_mailbox(mailbox) {
                 // When this element it clicked following code is executed.
                 console.log(`Mail with id ${email_id} is clicked.`)
                 // Call the load_mail function to view the mail in separate section.
-                load_mail(email_id);
+                load_mail(email_id, mailbox);
             })
 
             // Appending the divison in the element with ID emails-view.
@@ -235,16 +238,15 @@ function load_mailbox(mailbox) {
 
 
 // Adding a new function to show the email.
-function load_mail(mail_id) {
+function load_mail(mail_id, mailbox) {
 
-    // Show the selected email and hide other views
+    // Show the selected email and hide other views.
     document.querySelector('#emails-view').style.display = 'none';
     document.querySelector('#compose-view').style.display = 'none';
     document.querySelector('#email-view').style.display = 'block';
 
     // Clearing the previous stale content.
     document.querySelector('#email-view').innerHTML = "";
-
 
     // Marking the clicked email as read. PUT request through API.
     fetch(`/emails/${mail_id}`, {
@@ -254,7 +256,6 @@ function load_mail(mail_id) {
         })
     })
 
-
     // Fetch the requested mail data by querying the API
     fetch(`/emails/${mail_id}`)
     .then(response => response.json())
@@ -262,9 +263,8 @@ function load_mail(mail_id) {
         // Print email at console.
         console.log(email);
 
-        // Further code is placed here.
-
-        // Required parameters: Show the email’s sender, recipients, subject, timestamp, and body.
+        // Acquiring data from email object.
+        // Required parameters: sender, recipients, subject, timestamp, and body.
         var email_sender = email.sender;
         var email_recipients = email.recipients;
         var email_subject = email.subject;
@@ -287,22 +287,77 @@ function load_mail(mail_id) {
 
         `;
 
-
         // Setting a class name for this division for further styling using CSS.
         mail_view_div.className = "mail-main-view-div-style";
-
-        // // Setting an eventListener to this element, when clicked.
-        // // This function works well with forEach method.
-        // mail_view_div.addEventListener('click', function() {
-        //     // When this element it clicked following code is executed.
-        //     console.log(`Mail with id ${email_id} is clicked.`)
-        //     // Call the load_mail function to view the mail in separate section.
-        //     load_mail(email_id);
-        // })
-
-        
-        // Appending the new content
+ 
+        // Appending the created division to email-view division. (Look inbox.html for more.)
         document.querySelector('#email-view').append(mail_view_div);
+
+        //  Archive option for inbox mails.
+        if(mailbox === "inbox") {
+            // Creating a button for archive.
+            const archiveButton = document.createElement('BUTTON');
+            archiveButton.innerHTML = "Archive";
+            archiveButton.addEventListener('click', function() {
+
+                // Debug log for button press event.
+                console.log(`Archive button is pressed for ${mail_id}`);
+
+                // Marking email as archived. PUT request through API.
+                fetch(`/emails/${mail_id}`, {
+                    method: 'PUT',
+                    body: JSON.stringify({
+                        archived: true
+                    })
+                })
+
+                // Load indox after waiting 500 ms to update the database.
+                // M1
+                // setTimeout(load_mailbox, 500, 'inbox');
+                // M2
+                setTimeout(() => load_mailbox('inbox'), 500);
+
+            });
+
+            // Adding class name to button, auto style by bootstrap.
+            archiveButton.className = "btn btn-sm btn-outline-primary";
+
+            // Appending the archive button to email-view division.
+            document.querySelector('#email-view').append(archiveButton);
+        }
+
+        //  Unarchive option for archived mails.
+        if(mailbox === "archive") {
+            // Creating a button to unarchive.
+            const unarchiveButton = document.createElement('BUTTON');
+            unarchiveButton.innerHTML = "Unarchive";
+            unarchiveButton.addEventListener('click', function() {
+
+                // Debug log for button press event.
+                console.log(`Archive button is pressed for ${mail_id}`);
+
+                // Marking email as unarchived. PUT request through API.
+                fetch(`/emails/${mail_id}`, {
+                    method: 'PUT',
+                    body: JSON.stringify({
+                        archived: false
+                    })
+                })
+
+                // Load indox after waiting 500 ms to update the database.
+                // M1
+                // setTimeout(load_mailbox, 500, 'inbox');
+                // M2
+                setTimeout(() => load_mailbox('inbox'), 500);
+
+            });
+
+            // Adding class name to button, auto style by bootstrap.
+            unarchiveButton.className = "btn btn-sm btn-outline-primary";
+
+            // Appending the unarchive button to email-view division.
+            document.querySelector('#email-view').append(unarchiveButton);
+        }
 
     })
 
