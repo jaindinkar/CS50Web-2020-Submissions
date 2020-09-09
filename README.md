@@ -9,6 +9,8 @@ This is the 5th project in the series of 6 projects under CS50W-2020. It require
 ## Languages/Frameworks Used
 
 - Python(Django 3.0)
+- Javascript
+- HTML/CSS
 
 ## Important Links
 
