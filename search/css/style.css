@@ -67,6 +67,22 @@ nav ul li a img {
 /* Google Logo Done */
 
 
+/* This part is for google images page */
+
+.logo-subtext {
+    color: #4285f4;
+    font: 16px/16px Google-Roboto, arial, sans-serif;
+    left: 105px;
+    position: relative;
+    top: -16px;
+    white-space: nowrap;
+
+    display: block;
+    text-align: -webkit-center;
+}
+
+/* Done */
+
 /* Search form starts */
 
 div.search-form-lvl-1 {
@@ -103,11 +119,11 @@ div.search-form-lvl-1 {
     border: 1px solid #dfe1e5;
     box-shadow: none;
     border-radius: 24px;
-    z-index: 3;
+    /*z-index: 3;*/
     height: 44px;
     margin: 0 auto;
-    width: 482px;
-    width: 582px;
+    /*width: 482px;*/
+    /*width: 582px;*/
     display: block;
 }
 
@@ -127,8 +143,8 @@ div.search-form-lvl-1 {
 	display: flex;
     align-items: center;
     padding-right: 13px;
-    margin-top: -5px;
-    /*display: block;*/
+    margin-top: 0px;
+    display: block;
 }
 
 .search-form-lvl-3-search-bar-lvl-1-icon-fix-lvl-2 {
@@ -163,36 +179,24 @@ div.search-form-lvl-1 {
 
 /*Search Text bar*/
 
-.a4bIc {
-
+.search-form-lvl-3-search-bar-lvl-1-text-box-lvl-1 {
 	display: flex;
-    flex: 2;
+    flex: 1;
     flex-wrap: wrap;
-
 }
 
-.pR49Ae {
-	color: transparent;
-    flex: 100%;
-    white-space: pre;
-    font: 16px arial,sans-serif;
-    line-height: 34px;
-    height: 34px !important;
-    display: block;
-}
-
-.gLFyf {
+.search-form-lvl-3-search-bar-lvl-1-text-box-lvl-2 {
     background-color: transparent;
     border: none;
     margin: 0;
-    padding: 0;
+    padding: 5px 20px 5px 30px;
     color: rgba(0,0,0,.87);
-    word-wrap: break-word;
+    /*word-wrap: break-word;*/
     outline: none;
     display: flex;
     flex: 100%;
-    -webkit-tap-highlight-color: transparent;
-    margin-top: -37px;
+    /*-webkit-tap-highlight-color: transparent;*/
+    margin-top: -37px;  /*Important*/
     height: 34px;
     font-size: 16px;
     font: 16px arial,sans-serif;

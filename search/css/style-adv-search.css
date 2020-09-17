@@ -1,0 +1,201 @@
+@font-face {
+	font-family: Google-Roboto;
+	src: local("/fonts/google-roboto.woff2");
+}
+
+body {
+	margin: 0;
+	padding: 0;
+	font-family: arial,sans-serif;
+}
+
+header {
+	background: #f1f1f1;
+	background-size: cover;
+	background-position: center;
+	height: 50px;
+}
+
+nav {
+	position: fixed;
+	width: 100%;
+	line-height: 25px;
+}
+
+nav ul {
+	float: right;
+	margin: 0;
+	padding-left: 0;
+}
+
+nav ul li {
+	display: inline-block;
+	padding: 16px 32px;
+}
+
+nav ul li a {
+	text-decoration: none;
+	color: #00000;
+	font-size: 25px;
+}
+
+nav ul li a img {
+	height: 20px;
+}
+
+
+/* Navbar done */
+
+
+/* Appbar CSS */
+
+.appbar {
+    color: #d93025;
+    font-size: 20px;
+    margin: 25px 35px;
+    display: block;
+    font-family: arial,sans-serif;
+}
+
+.appbar-endline {
+	border-bottom: 1px solid #ebebeb;
+}
+
+/* Appbar CSS Done */
+
+
+/* Form CSS */
+
+.form-containing-division {
+    max-width: 1140px;
+    min-width: 200px;
+    width: 96%;
+    margin: 40px 2% 0 45px;
+    display: block;
+}
+
+.adv-search-form {
+	display: block;
+}
+
+.adv-search-form-div-1 .adv-search-form-div-2{
+    width: 100%;
+    clear: both;
+    display: block;
+}
+
+.adv-search-form-div-lvl-1-internal-heading-div {
+	float: left;
+    display: inline-block;
+    min-width: 167px;
+    width: 16%;
+    font-size: 16px;
+    height: 42px;
+    font-weight: 500;
+    color: #333;
+    vertical-align: middle;
+}
+
+.adv-search-form-div-lvl-1-internal-heading-div-lvl-1 {
+	height: 30px;
+    display: table-cell;
+    vertical-align: middle;
+}
+
+
+/* Form elements styling*/
+
+.adv-search-form-element {
+	clear: both;
+}
+
+
+.adv-search-form-element-label-div {
+    float: left;
+    display: inline-block;
+    min-width: 167px;
+    width: 16%;
+    height: 42px;
+    color: #222;
+    font-size: 13px;
+    line-height: 16px;
+    vertical-align: middle;
+}
+
+.adv-search-form-element-label-div-lvl-1 {
+	height: 30px;
+    display: table-cell;
+    vertical-align: middle;
+}
+
+.adv-search-form-element-text-div {
+    float: left;
+    display: inline-block;
+    min-width: 167px;
+    min-height: 41px;
+    vertical-align: middle;
+    width: 50%;
+}
+
+.adv-search-form-element-text-div-lvl-1 {
+	padding-right: 16px;
+}
+
+.text-input-div {
+	width: 100%;
+    text-align: left;
+	-webkit-border-radius: 1px;
+    -moz-border-radius: 1px;
+    border-radius: 1px;
+    border: 1px solid #d9d9d9;
+    border-top: 1px solid #c0c0c0;
+    font-size: 13px;
+    height: 25px;
+    padding: 1px 8px;
+}
+
+.text-input-div:focus {
+	box-shadow: inset 0 1px 2px rgba(0,0,0,0.3);
+    border: 1px solid #4d90fe;
+    outline: none;
+}
+
+.submit-button {
+
+	user-select:none;
+	line-height:100%;
+	height:30px;
+	min-width:120px;
+
+	float: right;
+    margin: 10px 0;
+
+    box-shadow: none;
+    background-color: #4d90fe;
+
+    background-image: linear-gradient(top,#4d90fe,#4787ed);
+    border: 1px solid #3079ed;
+    color: #fff;
+
+    border-radius: 2px;
+    cursor: default;
+    font-size: 11px;
+    font-weight: bold;
+    text-align: center;
+    white-space: nowrap;
+    outline: 0;
+}
+
+.submit-button:hover {
+	background-color: #357ae8;
+    background-image: linear-gradient(top,#4d90fe,#357ae8);
+    border: 1px solid #2f5bb7;
+    border-image: initial;
+}
+
+.form-endline {
+	margin-top: 70px;
+    /*margin: 18px 0;*/
+    clear: both;
+    border-top: 1px solid #ebebeb;
+}
