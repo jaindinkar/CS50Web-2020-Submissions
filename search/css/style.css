@@ -44,76 +44,59 @@ nav ul li a img {
 }
 
 
-.content {
-	padding-bottom: 35px;
+/* Navbar done */
+
+
+
+
+/* Google Logo CSS */
+
+.google-logo {
+
 	display: block;
+	margin-left: auto;
+	margin-right: auto;
+	padding-top: 125px;
+	text-align: center;
+
+	height: auto;
+    vertical-align: bottom;
+
 }
 
-.ctr-p {
-	display: block;
-	width: auto;
-	min-width: 400px;
-	margin: 0 auto;
-}
+/* Google Logo Done */
 
-center {
-	display: block;
-	text-align: -webkit-center;
-}
 
-.lga {
-	height: 233px;
-	transition: margin-top 0.4s ease,height 0.4s ease;
-	display: block;
-}
+/* Search form starts */
 
-@media only screen and (max-height: 768px){
-	.lga {
-	    margin-top: 47px;
-	}
-}
+div.search-form-lvl-1 {
 
-div.lga img.hplogo {
-	transition: padding-top 0.4s ease,width 0.4s ease,height 0.4s ease;
-	width: auto;
-}
-
-div.searchform {
-	margin-top: 0;
-	transition: top 0.4s ease,transform 0.4s ease;
+	margin-top: 20px;
 	min-width: 400px;
 	position: absolute;
 	width: 100%;
 	display: block;
 }
 
-@media only screen and (max-height: 768px){
-	.searchform {
-	    top: 269px;
-	}
-}
 
-.tsf {
+.search-form-lvl-2 {
 	max-width: none;
 	width: auto;
     margin: 0 32px;
     background: none;
+    display: block;
 }
 
-form {
-	display: block;
-}
 
-.A8SBwf {
+.search-form-lvl-3 {
 	width: auto;
     max-width: 584px;
     position: relative;
     margin: 0 auto;
-    padding-top: 6px;
     display: block;
 }
 
-.RNNXgb {
+.search-form-lvl-3-search-bar {
     width: auto;
     background: #fff;
     display: flex;
@@ -128,11 +111,10 @@ form {
     display: block;
 }
 
-.SDkEP {
+.search-form-lvl-3-search-bar-lvl-1 {
 	flex: 1;
     display: flex;
-    padding: 5px 8px 0 16px;
-    padding-left: 14px;
+    padding: 5px 8px 0px 16px;
     display: block;
 }
 
@@ -141,20 +123,20 @@ form {
 
 /*Search Icon*/
 
-.iblpc {
+.search-form-lvl-3-search-bar-lvl-1-icon-fix-lvl-1 {
 	display: flex;
     align-items: center;
     padding-right: 13px;
     margin-top: -5px;
-    display: block;
+    /*display: block;*/
 }
 
-.hsuHs {
+.search-form-lvl-3-search-bar-lvl-1-icon-fix-lvl-2 {
     margin: auto;
     display: block;
 }
 
-.wFncld {
+.search-form-lvl-3-search-bar-lvl-1-icon-fix-lvl-3 {
     margin-top: 3px;
     color: #9aa0a6;
     height: 20px;
@@ -168,15 +150,15 @@ form {
     width: 24px;
 }
 
-.wFncld svg {
+.search-form-lvl-3-search-bar-lvl-1-icon-fix-lvl-3 svg {
     display: block;
     height: 100%;
     width: 100%;
 }
 
-svg:not(:root) {
+/*svg:not(:root) {
     overflow: hidden;
-}
+}*/
 
 
 /*Search Text bar*/
@@ -184,7 +166,7 @@ svg:not(:root) {
 .a4bIc {
 
 	display: flex;
-    flex: 1;
+    flex: 2;
     flex-wrap: wrap;
 
 }
@@ -221,7 +203,7 @@ svg:not(:root) {
 /* Search bar CSS ends */
 
 
-.FPdoLc {
+.search-form-lvl-3-search-buttons {
     height: 70px;
 	padding-top: 18px;
     top: 53px;
@@ -229,7 +211,7 @@ svg:not(:root) {
     display: block;
 }
 
-.FPdoLc input[type="submit"] {
+.search-form-lvl-3-search-buttons input[type="submit"] {
     background-image: -webkit-linear-gradient(top,#f5f5f5,#f1f1f1);
     background-color: #f2f2f2;
     border: 1px solid #f2f2f2;
@@ -247,7 +229,7 @@ svg:not(:root) {
     user-select: none;
 }
 
-.FPdoLc input[type="submit"]:hover {
+.search-form-lvl-3-search-buttons input[type="submit"]:hover {
     box-shadow: 0 1px 1px rgba(0,0,0,0.1);
     background-image: -webkit-linear-gradient(top,#f8f8f8,#f1f1f1);
     background-color: #f8f8f8;
