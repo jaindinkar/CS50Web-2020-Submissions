@@ -131,33 +131,34 @@ function load_mailbox(mailbox) {
             var email_id = email_obj[mail_index].id;
 
             // Creating a divison for each mail object.
-            const mail_sub_div = document.createElement('div');
+            const mail_tab = document.createElement('div');
+
+            // Setting a class name for this division for further styling using CSS.
+            mail_tab.className += "mail-div";
 
             // Adding the HTML content in the division.
-            mail_sub_div.innerHTML = `
+            mail_tab.innerHTML = `
 
-                <h2>From: ${email_sender}</h2> 
-                <h4>Subject: ${email_subject}</h4>
-                <p>Time: ${email_timestamp}</p>
-
+                <div class="mail-id">${email_sender}</div>
+                <div class="mail-sub">${email_subject}</div>
+                <div class="date-time">${email_timestamp}</div>
             `;
 
             // Setting the background color of the division using the read property of mail object.
             if(email_isRead){
                 // https://www.w3schools.com/JSREF/prop_style_backgroundcolor.asp
-                // mail_sub_div.style.background = "color image repeat attachment position size origin clip|initial|inherit";
-                mail_sub_div.style.background = "#ededed";
+                // mail_tab.style.background = "color image repeat attachment position size origin clip|initial|inherit";
+                mail_tab.style.background = "#ededed";
             }
             else {
-                mail_sub_div.style.background = "#ffffff";
+                mail_tab.style.background = "#ffffff";
             }
 
-            // Setting a class name for this division for further styling using CSS.
-            mail_sub_div.className = "mail-sub-div-style";
+            
 
             // Setting an eventListener to this element, when clicked.
             // This function works well with forEach method.
-            mail_sub_div.addEventListener('click', function() {
+            mail_tab.addEventListener('click', function() {
                 // When this element it clicked following code is executed.
                 console.log(`Mail with id ${email_id} is clicked.`)
                 // Call the load_mail function to view the mail in separate section.
@@ -165,7 +166,7 @@ function load_mailbox(mailbox) {
             })
 
             // Appending the divison in the element with ID emails-view.
-            document.querySelector('#emails-view').append(mail_sub_div);
+            document.querySelector('#emails-view').append(mail_tab);
             
         })
 
