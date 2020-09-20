@@ -68,9 +68,9 @@ CSS for emails-view
 
     /*Positioning*/
     float: left;
-    min-width: 200px;
+    min-width: 220px;
     width: 15%;
-    overflow: auto;
+    /*overflow: auto;*/
     padding: 5px 5px;
     vertical-align: middle;
 
