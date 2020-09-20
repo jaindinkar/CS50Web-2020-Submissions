@@ -1,3 +1,7 @@
+/*------------------ 
+CSS for emails-view 
+--------------------*/
+
 #emails-view {
 	/*Characteristics*/
     /*none*/
@@ -150,25 +154,94 @@
 }
 
 
+/*-------------------- 
+CSS for compose-view 
+----------------------*/
 
 textarea {
     min-height: 400px;
+    max-height: 400px;
 }
 
-.mail-main-view-div-style {
-
-	padding: 20px;
+.submit-button {
 	margin: 10px;
-	margin-top: 10px;
-	border-style: solid;
-	border-radius: 10px;
-	border-color: #0010ed;
-	border-width: 4px;
-	background-color: #d4f6ff;
 }
 
 
-.mail-main-view-div-style h5 {
+/*------------------ 
+CSS for email-view 
+--------------------*/
+
+#email-view {
+
+	/*Positioning*/
+	overflow: auto;
+	margin: 40px 40px;
+	padding: 5px;
+
+	/*Test*/
+	/*background-color: green;*/
+}
+
+.mail-view-internal-div {
+
+	/*Characteristics*/
+	border-style: solid;
+
+	/*Positioning*/
+	padding: 10px;
+	margin-bottom: 10px;
+	min-height: 400px;
+
+	/*Test*/
+	/*background-color: orange;*/
+}
+
+.mail-view-from {
+
+	/*Test*/
+	/*background-color: red;*/
+}
+
+.mail-view-to {
+
+	/*Test*/
+	/*background-color: yellow;*/
+}
+
+.mail-view-sub {
+
+	/*Test*/
+	/*background-color: lightblue;*/
+}
+
+.mail-view-date-time {
+
+	/*Test*/
+	/*background-color: pink;*/
+}
+
+.mail-view-details-endline {
+	margin-bottom: 2px;
+}
+
+.mail-view-body {
+  
 	/* To render the new line (\n) */
 	white-space: pre-line;
+
+	/*Test*/
+	/*background-color: aqua;*/
+}
+
+.archive-button {
+	margin: 10px;
+}
+
+.reply-button {
+	margin: 10px;
+}
+
+.unarchive-button {
+	margin: 10px;
 }

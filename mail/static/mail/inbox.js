@@ -215,21 +215,26 @@ function load_mail(mail_id, mailbox) {
         // Creating a divison for placing content of requested mail.
         const mail_view_div = document.createElement('div');
 
+        // Setting a class name for this division for further styling using CSS.
+        mail_view_div.className = "mail-view-internal-div";
+
         // Adding the HTML content in the division.
         mail_view_div.innerHTML = `
 
-            <h2>From: ${email_sender}</h2> 
-            <h2>Recipients: ${email_recipients}</h2>
-            <h4>Subject: ${email_subject}</h4>
-            <p>Time: ${email_timestamp}</p>
-            <h5>Body:</h5>
-            <h5>${email_body}</h5>
+            <div class="mail-view-from"><b>From:</b> ${email_sender}</div>
+
+            <div class="mail-view-to"><b>To:</b> ${email_recipients}</div>
+
+            <div class="mail-view-sub"><b>Subject:</b> ${email_subject}</div>
+
+            <div class="mail-view-date-time"><b>Timestamp:</b> ${email_timestamp}</div>
+
+            <hr class="mail-view-details-endline">
+
+            <div class="mail-view-body">${email_body}</div>
 
         `;
 
-        // Setting a class name for this division for further styling using CSS.
-        mail_view_div.className = "mail-main-view-div-style";
- 
         // Appending the created division to email-view division. (Look inbox.html for more.)
         document.querySelector('#email-view').append(mail_view_div);
 
@@ -237,6 +242,7 @@ function load_mail(mail_id, mailbox) {
         if(mailbox === "inbox") {
             // Feature I - Creating a button for archive.
             const archiveButton = document.createElement('BUTTON');
+            archiveButton.className = "btn btn-sm btn-outline-primary archive-button";
             archiveButton.innerHTML = "Archive";
             archiveButton.addEventListener('click', function() {
 
@@ -259,8 +265,7 @@ function load_mail(mail_id, mailbox) {
 
             });
 
-            // Adding class name to button, auto style by bootstrap.
-            archiveButton.className = "btn btn-sm btn-outline-primary";
+            
 
             // Appending the archive button to email-view division.
             document.querySelector('#email-view').append(archiveButton);
@@ -268,6 +273,7 @@ function load_mail(mail_id, mailbox) {
 
             // Feature II - Creating a button for reply.
             const replyButton = document.createElement('BUTTON');
+            replyButton.className = "btn btn-sm btn-outline-primary reply-button";
             replyButton.innerHTML = "Reply";
 
 
@@ -295,9 +301,6 @@ function load_mail(mail_id, mailbox) {
             // });
 
 
-            // Adding class name to button, auto style by bootstrap.
-            replyButton.className = "btn btn-sm btn-outline-primary";
-
             // Appending the reply button to email-view division.
             document.querySelector('#email-view').append(replyButton);
 
@@ -308,6 +311,7 @@ function load_mail(mail_id, mailbox) {
         if(mailbox === "archive") {
             // Feature I - Creating a button to unarchive.
             const unarchiveButton = document.createElement('BUTTON');
+            unarchiveButton.className = "btn btn-sm btn-outline-primary unarchive-button";
             unarchiveButton.innerHTML = "Unarchive";
             unarchiveButton.addEventListener('click', function() {
 
@@ -329,9 +333,6 @@ function load_mail(mail_id, mailbox) {
                 setTimeout(() => load_mailbox('inbox'), 500);
 
             });
-
-            // Adding class name to button, auto style by bootstrap.
-            unarchiveButton.className = "btn btn-sm btn-outline-primary";
 
             // Appending the unarchive button to email-view division.
             document.querySelector('#email-view').append(unarchiveButton);
