@@ -1,5 +1,22 @@
 {% extends "network/layout.html" %}
+{% load static %}
 
 {% block body %}
-    TODO
+
+    {% if user.is_authenticated %}
+		<div class="new-post-main-div">
+			<textarea name="comment" form="usrform" placeholder="What's on your mind??" class="post-area"></textarea>
+
+			<form action="#" class="new-post-form">
+				<!-- <input type="submit" name="Submit" value="Draft" class="draft-button"> -->
+				<input type="submit" name="Submit" value="Post" class="post-button">
+			</form>
+
+		</div>
+
+		<hr class="post-box-endline">
+    {% endif %}
+
+    <div class="normal-post-div">Division for the display of all the posts.</div>
+
 {% endblock %}

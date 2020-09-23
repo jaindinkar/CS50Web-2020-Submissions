@@ -1,0 +1,115 @@
+
+/*-----------------
+Css for index.html
+-------------------*/
+
+.new-post-main-div {
+	border-style: solid;
+  min-height: 170px;
+	margin: 40px;
+  padding: 10px;
+	box-shadow: 2px 4px rgba(0,0,0,0.3);
+/*   width: 100%; */
+/*   overflow: auto; */
+  
+  
+  display: flex;
+  flex-direction: column;
+/*   flex-wrap: wrap; */
+ 
+/*   justify-content: center; */
+/*   align-items: flex-start; */
+/*   align-items: baseline; */
+/*   align-content: space-between; */
+  /*Test */
+/*   background-color: green; */
+}
+
+.post-area { 
+  border-style: solid;
+  border-radius: 10px;
+  border-width: 2px;
+  border-color: black;
+  
+  margin: 10px;
+  padding: 10px;
+/*   min-width: 500px; */
+/*   width: 98.5%; */
+  min-height: 100px;
+  
+/*   flex-grow: 1; */
+/*   felx-shrink: ; */
+/*   flex-basis: 98%; */
+  flex: 1 1 98%;
+/*   order: 0; */
+/*   align-self: stretch; */
+
+/*   background-color: yellow; */
+}
+
+.post-area:focus {
+  border-style: none;
+  border-radius: 10px;
+  box-shadow: 2px 4px rgba(0,0,0,0.3);
+  
+  /*   background-color: lightblue; */
+}
+
+
+.draft-button {
+
+  margin: 10px;
+  padding: 5px;
+  width: 100px;
+  color: #ffffff;
+  
+  box-shadow: 1px 2px rgb(0,0,0,0.3);
+  background-color: #347deb;
+  
+  border-style: solid;
+  border-color: #000000;
+  border-width: 1px;
+  border-radius: 10px;
+  
+/*   flex-grow: ; */
+/*   felx-shrink: ; */
+/*   flex-basis: ; */
+/*   order: ; */
+/*   align-self: ; */
+  flex: none;
+  float: left;
+}
+
+.draft-button:hover {
+  box-shadow: inset 0 1px 2px #ffffff;
+}
+
+
+.post-button {
+  margin: 10px;
+  padding: 5px;
+  width: 100px;
+  color: #ffffff;
+  
+  box-shadow: 1px 2px rgb(0,0,0,0.3);
+  background-color: #347deb;
+  
+  border-style: solid;
+  border-color: #000000;
+  border-width: 1px;
+  border-radius: 10px;
+  
+/*   flex-grow: 1; */
+/*   felx-shrink: ; */
+/*   flex-basis: ; */
+/*   order: 1; */
+/*   align-self: flex-end; */
+  
+  flex: none;
+  float: right;
+  margin-right: 25px;
+}
+
+.post-button:hover {
+  box-shadow: inset 0 1px 2px #ffffff;
+}
