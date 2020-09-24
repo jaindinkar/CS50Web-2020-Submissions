@@ -1,11 +1,11 @@
 
-/*-----------------
-Css for index.html
--------------------*/
+/*-----------------------------------------
+Css for New post division in  index.html
+--------------------------------------------*/
 
 .new-post-main-div {
 	border-style: solid;
-  min-height: 170px;
+/*   min-height: 170px; */
 	margin: 40px;
   padding: 10px;
 	box-shadow: 2px 4px rgba(0,0,0,0.3);
@@ -15,7 +15,7 @@ Css for index.html
   
   display: flex;
   flex-direction: column;
-/*   flex-wrap: wrap; */
+  flex-wrap: wrap;
  
 /*   justify-content: center; */
 /*   align-items: flex-start; */
@@ -26,28 +26,40 @@ Css for index.html
 }
 
 .post-area { 
+  margin: 10px;
+  
+/*   flex-grow: 1; */
+/*   felx-shrink: ; */
+/*   flex-basis: 98%; */
+  flex: 1 1 100%;
+/*   order: 1; */
+/*   align-self: stretch; */
+
+/*   background-color: green; */
+}
+
+.post-textarea {
+  
+/*   To remove the resize point from textarea */
+  resize: none;
+  
   border-style: solid;
   border-radius: 10px;
   border-width: 2px;
   border-color: black;
   
-  margin: 10px;
   padding: 10px;
-/*   min-width: 500px; */
-/*   width: 98.5%; */
   min-height: 100px;
   
-/*   flex-grow: 1; */
-/*   felx-shrink: ; */
-/*   flex-basis: 98%; */
-  flex: 1 1 98%;
-/*   order: 0; */
-/*   align-self: stretch; */
-
+/*   Making text area occupy the division properly */
+  width: 100%;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  
 /*   background-color: yellow; */
 }
 
-.post-area:focus {
+.post-textarea:focus {
   border-style: none;
   border-radius: 10px;
   box-shadow: 2px 4px rgba(0,0,0,0.3);
@@ -73,7 +85,7 @@ Css for index.html
   
 /*   flex-grow: ; */
 /*   felx-shrink: ; */
-/*   flex-basis: ; */
+/*   flex-basis: 1 1 50%; */
 /*   order: ; */
 /*   align-self: ; */
   flex: none;
@@ -101,15 +113,118 @@ Css for index.html
   
 /*   flex-grow: 1; */
 /*   felx-shrink: ; */
-/*   flex-basis: ; */
+/*   flex-basis: 1 1 50%; */
 /*   order: 1; */
 /*   align-self: flex-end; */
   
   flex: none;
   float: right;
-  margin-right: 25px;
 }
 
 .post-button:hover {
   box-shadow: inset 0 1px 2px #ffffff;
 }
+
+
+
+/*-----------------------------------------
+Css for Recent post division in  index.html
+--------------------------------------------*/
+
+.post-tab-heading{
+  text-align: center;
+  font-size: 50px;
+  
+  margin: 40px 40px 40px 40px;
+  padding: 10px;
+  
+/*   Test */
+/*   background-color: yellow; */
+/*   border-style: solid; */
+ 
+}
+
+.normal-post-div{
+  
+  border-style: solid;
+  border-color: black;
+  border-width: 1px;
+  border-color: orange;
+  
+  margin: 10px 400px 0px 400px;
+  padding: 20px;
+  
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  
+/*   background-color: pink; */
+}
+
+/* .normal-post-div:hover {
+  box-shadow: 2px 4px #2c2c2c;
+  color: white;
+} */
+
+
+.post-creator{
+/*   flex: 1 1 30%; */
+  padding-left: 10px;
+  
+/*   background-color: blue; */
+}
+
+.post-time{
+  flex: 1 1 60%;
+/*   text-align: left; */
+/*   align-self: stretch; */
+  padding-left: 10px;
+  
+/*   background-color: red; */
+}
+
+.post-content{
+  flex: 1 1 100%;
+  
+  border-style: solid;
+  border-width: 2px;
+  border-color: lightblue;
+  border-radius: 10px;
+  
+  padding: 10px;
+  
+  height: auto;
+  
+  /* To render the new line (\n) */
+	white-space: pre-line;
+  
+  background-color: white;
+}
+
+.post-like-button{
+/*   flex: 1 1 10%; */
+  
+/*   background-color: orange; */
+}
+
+.post-like-button:hover{
+  color: magenta;
+}
+
+.post-likes{
+  flex: 1 1 80%;
+  padding-left: 10px;
+  
+/*   background-color: yellow; */
+}
+
+.normal-post-div-divider-1 {
+  flex: 1 1 100%;
+  margin: 5px;
+}
+
+.normal-post-div-divider-2 {
+  flex: 1 1 100%;
+  margin: 5px;
+}
+
