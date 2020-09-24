@@ -15,11 +15,10 @@
 
 				</div>
 
-				<input type="submit" name="Submit" value="Draft" class="draft-button">
 				<input type="submit" name="Submit" value="Post" class="post-button">
 			</form>
 		</div>
-s
+
 		<hr class="post-box-endline">
 
     {% endif %}
@@ -27,26 +26,28 @@ s
 
 	<div class="post-tab-heading">Recent Posts</div>
 
-	<div class="normal-post-div">
+	{% for post in all_posts %}
 
-		<div class="post-creator"> Creator on the left</div>
-		<div class="post-time">Time of post on Right</div>
+		<div class="normal-post-div">
 
-		<hr class="normal-post-div-divider-1">
+			<div class="post-creator">{{ post.creator.username }}</div>
+			<div class="post-time">{{ post.post_timestamp }}</div>
 
-		<div class="post-content">Post content
-		hell fdsal
-		jfsdl;a
+			<hr class="normal-post-div-divider-1">
 
-		Whiteline is set to pre-line in this division.
-		height is automatically adjusted.
+			<div class="post-content">{{ post.content }}</div>
+
+			<hr class="normal-post-div-divider-2">
+
+			<div class="post-like-button">button</div>
+			<div class="post-likes">{{ post.post_likes }}</div>
+
 		</div>
 
-		<hr class="normal-post-div-divider-2">
+	{% empty %}
 
-		<div class="post-like-button">button</div>
-		<div class="post-likes">121</div>
+		<div>No Posts to show!! Why not create one!!</div>
 
-	</div>
+	{% endfor %}
 
 {% endblock %}

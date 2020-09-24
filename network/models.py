@@ -20,8 +20,6 @@ class Post(models.Model):
     post_timestamp = models.DateTimeField(auto_now_add=True)
     post_likes = models.IntegerField(default=0)
 
-    def __str__(self):
-        return(f"Post Creator: {self.creator.name} \n timestamp: {self.post_timestamp} \n likes: {self.post_likes} \n body: {self.content}")
 
     def serialize(self):
         return {
@@ -30,3 +28,6 @@ class Post(models.Model):
             "timestamp": self.post_timestamp.strftime("%b %d %Y, %I:%M %p"),
             "likes": self.post_likes
         }
+
+    def __str__(self):
+        return(f"Post Creator: {self.creator.username} \n timestamp: {self.post_timestamp} \n likes: {self.post_likes} \n body: {self.content}")

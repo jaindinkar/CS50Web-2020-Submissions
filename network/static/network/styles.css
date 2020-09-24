@@ -5,24 +5,28 @@ Css for New post division in  index.html
 
 .new-post-main-div {
 	border-style: solid;
-/*   min-height: 170px; */
-	margin: 40px;
-  padding: 10px;
+	   /*min-height: 170px; */
+	/*margin: 40px;*/
+	padding: 10px;
 	box-shadow: 2px 4px rgba(0,0,0,0.3);
-/*   width: 100%; */
-/*   overflow: auto; */
-  
-  
-  display: flex;
-  flex-direction: column;
-  flex-wrap: wrap;
- 
-/*   justify-content: center; */
-/*   align-items: flex-start; */
-/*   align-items: baseline; */
-/*   align-content: space-between; */
-  /*Test */
-/*   background-color: green; */
+	/*width: 100%; */
+	/*overflow: auto; */
+
+	max-width: 1200px;
+	margin: auto;
+	margin-top: 40px;
+	margin-bottom: 40px;
+
+	display: flex;
+	flex-direction: column;
+	flex-wrap: wrap;
+
+	/*justify-content: center; */
+	/*align-items: flex-start; */
+	/*align-items: baseline; */
+	/*align-content: space-between; */
+	/*Test */
+	/*background-color: green; */
 }
 
 .post-area { 
@@ -40,23 +44,24 @@ Css for New post division in  index.html
 
 .post-textarea {
   
-/*   To remove the resize point from textarea */
-  resize: none;
-  
-  border-style: solid;
-  border-radius: 10px;
-  border-width: 2px;
-  border-color: black;
-  
-  padding: 10px;
-  min-height: 100px;
-  
-/*   Making text area occupy the division properly */
-  width: 100%;
-  -webkit-box-sizing: border-box;
-  box-sizing: border-box;
-  
-/*   background-color: yellow; */
+	/*To remove the resize point from textarea */
+	resize: none;
+
+	border-style: solid;
+	border-radius: 10px;
+	border-width: 2px;
+	border-color: black;
+
+	padding: 10px;
+	height: 100px;
+	/*min-height: 50px;*/
+
+	/*Making text area occupy the division properly */
+	width: 100%;
+	-webkit-box-sizing: border-box;
+	box-sizing: border-box;
+
+	/*background-color: yellow; */
 }
 
 .post-textarea:focus {
@@ -65,35 +70,6 @@ Css for New post division in  index.html
   box-shadow: 2px 4px rgba(0,0,0,0.3);
   
   /*   background-color: lightblue; */
-}
-
-
-.draft-button {
-
-  margin: 10px;
-  padding: 5px;
-  width: 100px;
-  color: #ffffff;
-  
-  box-shadow: 1px 2px rgb(0,0,0,0.3);
-  background-color: #347deb;
-  
-  border-style: solid;
-  border-color: #000000;
-  border-width: 1px;
-  border-radius: 10px;
-  
-/*   flex-grow: ; */
-/*   felx-shrink: ; */
-/*   flex-basis: 1 1 50%; */
-/*   order: ; */
-/*   align-self: ; */
-  flex: none;
-  float: left;
-}
-
-.draft-button:hover {
-  box-shadow: inset 0 1px 2px #ffffff;
 }
 
 
@@ -127,21 +103,30 @@ Css for New post division in  index.html
 
 
 
+.post-box-endline{
+	margin-bottom: 0px;
+}
+
+
+
 /*-----------------------------------------
 Css for Recent post division in  index.html
 --------------------------------------------*/
 
 .post-tab-heading{
-  text-align: center;
-  font-size: 50px;
-  
-  margin: 40px 40px 40px 40px;
-  padding: 10px;
-  
-/*   Test */
-/*   background-color: yellow; */
-/*   border-style: solid; */
- 
+	text-align: center;
+	font-size: 50px;
+
+	max-width: 800px;
+	margin: auto;
+	margin-top: 10px;
+	margin-bottom: 10px;
+
+	padding: 10px;
+
+	/*Test */
+	/*background-color: yellow; */
+	/*border-style: solid; */
 }
 
 .normal-post-div{
@@ -151,7 +136,11 @@ Css for Recent post division in  index.html
   border-width: 1px;
   border-color: orange;
   
-  margin: 10px 400px 0px 400px;
+  max-width: 800px;
+  margin: auto;
+  margin-bottom: 10px;
+
+  /*margin: 10px 400px 0px 400px;*/
   padding: 20px;
   
   display: flex;
@@ -193,6 +182,7 @@ Css for Recent post division in  index.html
   
   padding: 10px;
   
+  min-height: 60px;
   height: auto;
   
   /* To render the new line (\n) */

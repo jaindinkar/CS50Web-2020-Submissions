@@ -10,6 +10,11 @@ from django.contrib.auth.decorators import login_required
 
 
 def index(request):
+
+    posts = Post.objects.all()
+    # Return posts in reverse chronologial order
+    posts = posts.order_by("-post_timestamp").all()
+    
     if request.method == "POST":
         form = NewPostForm(request.POST)
 
@@ -19,13 +24,13 @@ def index(request):
             newPost = Post(creator=request.user, content=post_content)
             newPost.save()
 
-            return render(request, "network/index.html", { 'form': NewPostForm() })
+            return render(request, "network/index.html", { 'form': NewPostForm(), 'all_posts': posts })
 
         else:
-            return render(request, "network/index.html", { 'form': NewPostForm() })
+            return render(request, "network/index.html", { 'form': NewPostForm(), 'all_posts': posts })
 
     else:
-        return render(request, "network/index.html", { 'form': NewPostForm() })
+        return render(request, "network/index.html", { 'form': NewPostForm(), 'all_posts': posts })
 
 
 def login_view(request):
