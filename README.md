@@ -2,7 +2,7 @@
 
 This is the 5th project in the series of 6 projects under CS50W-2020.
 
-##Project Description
+## Project Description
 
 Using Python, JavaScript, HTML, and CSS, complete the implementation of a social network that allows users to make posts, follow other users, and “like” posts.
 
