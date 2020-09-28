@@ -104,6 +104,21 @@ def toggle_follow(request, user_id):
         return HttpResponseRedirect(reverse("profile",args=[user_id,]))
 
 
+@login_required
+def following_page(request):
+    # Posts by all the users who current user follows.
+
+    users = request.user.follows.all()
+
+    posts = Post.objects.filter(creator__in=users)
+
+    # Rearranging the posts in reverse cronological order.
+    posts = posts.order_by("-post_timestamp").all()
+
+    return render(request, "network/following_page.html", {
+        'posts': posts
+    })
+
 
 
 def login_view(request):
