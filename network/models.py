@@ -6,7 +6,7 @@ class User(AbstractUser):
     # Extra user properties here.
     followed_by = models.ManyToManyField("User", related_name="my_followers")
     follows = models.ManyToManyField("User", related_name="i_follow")
-
+    
 
 # You will also need to add additional models to this file to represent 
 # details about posts, likes, and followers. Remember that each time you 

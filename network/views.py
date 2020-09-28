@@ -39,31 +39,71 @@ def index(request):
 def profile_view(request, user_id):
 
     try:
-        user = User.objects.get(pk=user_id)
+        profile_user = User.objects.get(pk=user_id)
     except User.DoesNotExist:
         return HttpResponseRedirect(reverse("index"))
 
-    # Separating the posts by requested user.
-    user_posts = Post.objects.filter(creator=user)
-    # Rearranging the posts by requested user in reverse cronological order.
+    # Filtering the posts by profile user.
+    user_posts = Post.objects.filter(creator=profile_user)
+    # Rearranging the posts in reverse cronological order.
     user_posts = user_posts.order_by("-post_timestamp").all()
 
-    # Count users follwed by current user
-    following = 0
-    for obj in user.follows.all():
-        following += 1
+    # Check if the current user follows the profile user
+    follows = False
+    if(request.user in profile_user.followed_by.all()):
+        follows = True
 
-    # Count users follwing current user
-    followed_by = 0
-    for obj in user.followed_by.all():
-        followed_by += 1
+
+    # Count users follwed by profile user
+    following_count = 0
+    for obj in profile_user.follows.all():
+        following_count += 1
+
+    # Count users follwing profile user
+    followed_by_count = 0
+    for obj in profile_user.followed_by.all():
+        followed_by_count += 1
 
     return render(request, "network/profile.html", {
-        'following': following,
-        'followed_by': followed_by,
+        'follows': follows,
+        'following': following_count,
+        'followed_by': followed_by_count,
         'user_posts': user_posts,
-        'profile_user': user
+        'profile_user': profile_user
     })
+
+@login_required
+def toggle_follow(request, user_id):
+    try:
+        profile_user = User.objects.get(pk=user_id)
+    except User.DoesNotExist:
+        return HttpResponseRedirect(reverse("index"))
+
+    if(profile_user == request.user):
+        return HttpResponseRedirect(reverse("index"))
+
+        
+    if(request.user in profile_user.followed_by.all()):
+        # If already followed by user then unfolow
+        profile_user.followed_by.remove(request.user)
+        request.user.follows.remove(profile_user)
+
+        profile_user.save()
+        request.user.save()
+
+        return HttpResponseRedirect(reverse("profile",args=[user_id,]))
+
+    else:
+        # Add the user to your following list.
+        profile_user.followed_by.add(request.user)
+        request.user.follows.add(profile_user)
+
+        profile_user.save()
+        request.user.save()
+
+        return HttpResponseRedirect(reverse("profile",args=[user_id,]))
+
+
 
 
 def login_view(request):

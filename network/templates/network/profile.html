@@ -14,9 +14,9 @@
 				<div class="follow-button">
 
 		        	{% if follows %}
-		        		<a href="#follow-unfollow-url">Unfollow</a>
+		        		<a href="{% url 'toggle_follow' profile_user.pk %}">Unfollow</a>
 		        	{% else %}
-				        <a href="#follow-unfollow-url">Follow</a>
+				        <a href="{% url 'toggle_follow' profile_user.pk %}">Follow</a>
 		         	{% endif %}
 
 			     </div>
