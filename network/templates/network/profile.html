@@ -33,7 +33,7 @@
 
 		<div class="normal-post-div">
 
-			<div class="post-creator">{{ post.creator.username }}</div>
+			<div class="post-creator"><a href="{% url 'profile' post.creator.pk %}">{{ post.creator.username }}</a></div>
 			<div class="post-time">{{ post.post_timestamp }}</div>
 
 			<hr class="normal-post-div-divider-1">

@@ -1,0 +1,33 @@
+{% extends "network/layout.html" %}
+{% load static %}
+
+
+{% block body %}
+
+	<div class="post-tab-heading">Posts by the users you follow.</div>
+
+	{% for post in posts %}
+
+		<div class="normal-post-div">
+
+			<div class="post-creator"><a href="{% url 'profile' post.creator.pk %}">{{ post.creator.username }}</a></div>
+			<div class="post-time">{{ post.post_timestamp }}</div>
+
+			<hr class="normal-post-div-divider-1">
+
+			<div class="post-content">{{ post.content }}</div>
+
+			<hr class="normal-post-div-divider-2">
+
+			<div class="post-like-button">button</div>
+			<div class="post-likes">{{ post.post_likes }}</div>
+
+		</div>
+
+	{% empty %}
+
+		<div>No posts yet!</div>
+
+	{% endfor %}
+
+{% endblock %}
