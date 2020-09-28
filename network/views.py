@@ -10,13 +10,18 @@ from django.urls import reverse
 from .models import User, Post
 from .forms import NewPostForm
 from django.contrib.auth.decorators import login_required
-
+from django.core.paginator import Paginator
 
 def index(request):
 
     posts = Post.objects.all()
     # Return posts in reverse chronologial order
     posts = posts.order_by("-post_timestamp").all()
+    
+    # Pagination Script
+    paginator = Paginator(posts, 10)
+    page_number = request.GET.get('page')
+    page_obj = paginator.get_page(page_number)
     
     if request.method == "POST":
         form = NewPostForm(request.POST)
@@ -27,13 +32,13 @@ def index(request):
             newPost = Post(creator=request.user, content=post_content)
             newPost.save()
 
-            return render(request, "network/index.html", { 'form': NewPostForm(), 'all_posts': posts })
+            return render(request, "network/index.html", { 'form': NewPostForm(), 'page_obj': page_obj })
 
         else:
-            return render(request, "network/index.html", { 'form': NewPostForm(), 'all_posts': posts })
+            return render(request, "network/index.html", { 'form': NewPostForm(), 'page_obj': page_obj })
 
     else:
-        return render(request, "network/index.html", { 'form': NewPostForm(), 'all_posts': posts })
+        return render(request, "network/index.html", { 'form': NewPostForm(), 'page_obj': page_obj })
 
 
 def profile_view(request, user_id):
@@ -47,6 +52,10 @@ def profile_view(request, user_id):
     user_posts = Post.objects.filter(creator=profile_user)
     # Rearranging the posts in reverse cronological order.
     user_posts = user_posts.order_by("-post_timestamp").all()
+    # Pagination Script
+    paginator = Paginator(user_posts, 10)
+    page_number = request.GET.get('page')
+    page_obj = paginator.get_page(page_number)
 
     # Check if the current user follows the profile user
     follows = False
@@ -68,7 +77,7 @@ def profile_view(request, user_id):
         'follows': follows,
         'following': following_count,
         'followed_by': followed_by_count,
-        'user_posts': user_posts,
+        'page_obj': page_obj,
         'profile_user': profile_user
     })
 
@@ -115,8 +124,13 @@ def following_page(request):
     # Rearranging the posts in reverse cronological order.
     posts = posts.order_by("-post_timestamp").all()
 
+    # Pagination Script
+    paginator = Paginator(posts, 10)
+    page_number = request.GET.get('page')
+    page_obj = paginator.get_page(page_number)
+
     return render(request, "network/following_page.html", {
-        'posts': posts
+        'page_obj': page_obj
     })
 
 
