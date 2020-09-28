@@ -10,7 +10,8 @@ Using Python, JavaScript, HTML, and CSS, complete the implementation of a social
 
 - This website enjoys the full integration of Python backend, Javascript, HTML, CSS.
 - Frontend design is responsive in nature.
-- WIP...
+- Pagination is achieved using django's pagiation class and is integrated in app everywhere.
+- Django's Abstract user model was modified to achieve interlinking of users.
 
 ## Languages/Frameworks Used
 
@@ -21,5 +22,7 @@ Using Python, JavaScript, HTML, and CSS, complete the implementation of a social
 ## Important Links
 
 - (Flexbox basics playlist by Kevin Powell)[https://www.youtube.com/playlist?list=PL4-IK0AVhVjMSb9c06AjRlTpvxL3otpUd]
-- WIP...
+- (Django Paginator class docs)[https://docs.djangoproject.com/en/3.0/topics/pagination/]
+- (Bootstrap Pagination Components)[https://getbootstrap.com/docs/4.4/components/pagination/]
+- (Codepen for designing and testing frontend components)[https://codepen.io/]
 
