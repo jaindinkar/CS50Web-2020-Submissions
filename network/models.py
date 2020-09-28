@@ -3,7 +3,9 @@ from django.db import models
 
 
 class User(AbstractUser):
-    pass
+    # Extra user properties here.
+    followed_by = models.ManyToManyField("User", related_name="my_followers")
+    follows = models.ManyToManyField("User", related_name="i_follow")
 
 
 # You will also need to add additional models to this file to represent 

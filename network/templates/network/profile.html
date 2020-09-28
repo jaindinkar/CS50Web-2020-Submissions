@@ -1,0 +1,57 @@
+{% extends "network/layout.html" %}
+{% load static %}
+
+{% block body %}
+
+
+	<div class="profile-page-div">
+	    <div class="profile-info">
+	        <div class="followed-by-number">Followers: <b>{{ followed_by }}</b></div>
+	        <div class="follows-number">Follows: <b>{{ following }}</b></div>
+
+			{% if user.is_authenticated and request.user != profile_user %}
+
+				<div class="follow-button">
+
+		        	{% if follows %}
+		        		<a href="#follow-unfollow-url">Unfollow</a>
+		        	{% else %}
+				        <a href="#follow-unfollow-url">Follow</a>
+		         	{% endif %}
+
+			     </div>
+
+			{% endif %}
+
+	    </div>
+	</div>
+
+
+	<div class="post-tab-heading">Posts by <b>{{ profile_user.username }}</b></div>
+
+	{% for post in user_posts %}
+
+		<div class="normal-post-div">
+
+			<div class="post-creator">{{ post.creator.username }}</div>
+			<div class="post-time">{{ post.post_timestamp }}</div>
+
+			<hr class="normal-post-div-divider-1">
+
+			<div class="post-content">{{ post.content }}</div>
+
+			<hr class="normal-post-div-divider-2">
+
+			<div class="post-like-button">button</div>
+			<div class="post-likes">{{ post.post_likes }}</div>
+
+		</div>
+
+	{% empty %}
+
+		<div>{{ post.creator.username }} hasen't created any posts yet!</div>
+
+	{% endfor %}
+
+
+{% endblock %}

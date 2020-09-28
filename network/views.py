@@ -36,6 +36,36 @@ def index(request):
         return render(request, "network/index.html", { 'form': NewPostForm(), 'all_posts': posts })
 
 
+def profile_view(request, user_id):
+
+    try:
+        user = User.objects.get(pk=user_id)
+    except User.DoesNotExist:
+        return HttpResponseRedirect(reverse("index"))
+
+    # Separating the posts by requested user.
+    user_posts = Post.objects.filter(creator=user)
+    # Rearranging the posts by requested user in reverse cronological order.
+    user_posts = user_posts.order_by("-post_timestamp").all()
+
+    # Count users follwed by current user
+    following = 0
+    for obj in user.follows.all():
+        following += 1
+
+    # Count users follwing current user
+    followed_by = 0
+    for obj in user.followed_by.all():
+        followed_by += 1
+
+    return render(request, "network/profile.html", {
+        'following': following,
+        'followed_by': followed_by,
+        'user_posts': user_posts,
+        'profile_user': user
+    })
+
+
 def login_view(request):
     if request.method == "POST":
 
@@ -56,9 +86,11 @@ def login_view(request):
         return render(request, "network/login.html")
 
 
+@login_required
 def logout_view(request):
     logout(request)
     return HttpResponseRedirect(reverse("index"))
+
 
 
 def register(request):
