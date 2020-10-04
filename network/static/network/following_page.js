@@ -108,11 +108,15 @@ function loadFollowingPosts(page_no) {
                 <div class="post-like-count">${post_like_count}</div>
             `;
 
+            // Preprocess the like button. Fill with red if already liked.
+            if(post_is_liked) {
+                post_div.querySelector('.like-heart').style.fill='red';
+            }
+
             // Appending the divison in the element with ID emails-view.
             document.querySelector('.post-display-div').append(post_div);
 
         })
-
 
 
         // pagiantion_data for the page are stacked at 0th index in page_data JSON object.

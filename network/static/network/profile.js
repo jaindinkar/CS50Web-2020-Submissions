@@ -248,6 +248,11 @@ function loadPosts(user_id, page_no) {
                 post_div.innerHTML += `<div class="edit-button">Edit</div>`;
             }
 
+            // Preprocess the like button. Fill with red if already liked.
+            if(post_is_liked) {
+                post_div.querySelector('.like-heart').style.fill='red';
+            }
+
             // Appending the divison in the element with ID emails-view.
             document.querySelector('.post-display-div').append(post_div);
 
