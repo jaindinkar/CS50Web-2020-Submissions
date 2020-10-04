@@ -110,7 +110,7 @@ Css for New post division in  index.html
 Css for Recent post division in  index.html
 --------------------------------------------*/
 
-.post-tab-heading{
+.post-tab-heading {
 	text-align: center;
 	font-size: 50px;
 
@@ -126,7 +126,7 @@ Css for Recent post division in  index.html
 	/*border-style: solid; */
 }
 
-.post-div{
+.post-div {
 	border-style: solid;
 	border-color: black;
 	border-width: 1px;
@@ -137,7 +137,7 @@ Css for Recent post division in  index.html
 	margin-bottom: 10px;
 
 	/*margin: 10px 400px 0px 400px;*/
-	padding: 20px;
+	padding: 20px 20px 7px 20px;
 
 	display: flex;
 	flex-direction: row;
@@ -152,14 +152,14 @@ Css for Recent post division in  index.html
 } */
 
 
-.post-creator{
+.post-creator {
 	/*flex: 1 1 30%; */
 	padding-left: 10px;
 
 	/*background-color: blue; */
 }
 
-.post-time{
+.post-time {
 	flex: 1 1 60%;
 	/*text-align: left; */
 	/*align-self: stretch; */
@@ -168,7 +168,14 @@ Css for Recent post division in  index.html
 	/*background-color: red; */
 }
 
-.post-content{
+
+.div-divider-1 {
+	flex: 1 1 100%;
+	margin: 5px;
+}
+
+
+.post-content {
 	flex: 1 1 100%;
 
 	border-style: solid;
@@ -187,8 +194,9 @@ Css for Recent post division in  index.html
 	background-color: white;
 }
 
+
 /* Css for the replacable textarea.*/
-.edit-content{
+.edit-content {
 	/*display: none; */
 	resize: none;
 	flex: 1 1 100%;
@@ -207,30 +215,8 @@ Css for Recent post division in  index.html
 	white-space: pre-line;
 
 	background-color: white;
-  
 }
 
-.post-like-button{
-	/*flex: 1 1 10%; */
-	  
-	/*background-color: orange; */
-}
-
-.post-like-button:hover{
-	color: magenta;
-}
-
-.post-likes{
-	flex: 1 1 80%;
-	padding-left: 10px;
-
-	/*background-color: yellow; */
-}
-
-.div-divider-1 {
-	flex: 1 1 100%;
-	margin: 5px;
-}
 
 .div-divider-2 {
 	flex: 1 1 100%;
@@ -238,7 +224,36 @@ Css for Recent post division in  index.html
 }
 
 
-.edit-button{
+.post-like-div{
+/*   flex: 1 1 20%; */
+/*   background-color: lightblue; */
+}
+
+
+.like-heart {
+	fill:none;
+	stroke:red;
+	stroke-width:1;
+	cursor: pointer;
+}
+
+.like-heart:hover {
+	fill:red;
+}
+
+
+.post-like-count {
+	flex: 1 1 80%;
+	padding: 2px 0px 2px 0px;
+	color: red;
+	font-weight: bold;
+	font-family: sans-serif;
+
+	/*background-color: yellowgreen; */
+}
+
+
+.edit-button {
 	/*display: none;*/
 	/*background-color: green;*/
 	margin-right: 10px;
@@ -251,7 +266,7 @@ Css for Recent post division in  index.html
 	box-shadow: 1px 2px rgba(0,0,0,0.3);
 }
 
-.edit-button:hover{
+.edit-button:hover {
 	/*display: none;*/
 	box-shadow: inset 0 2px 4px rgba(0,0,0,0.3);
 	cursor: pointer;
@@ -263,14 +278,14 @@ Css for Recent post division in  index.html
 Css for follow division in profile_page.html
 --------------------------------------------*/
 
-.profile-page-div{
+.profile-page-div {
     margin: 40px;
     padding: 20px;
     
     /*background-color: green;*/
 }
 
-.profile-info{
+.profile-info {
     padding: 5px;
     /*background-color: orange;*/
 }

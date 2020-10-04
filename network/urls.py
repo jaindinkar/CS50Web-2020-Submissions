@@ -24,6 +24,8 @@ urlpatterns = [
     path("get_following_posts", views.get_following_posts, name="get_following_posts"),
     # For updating a post securely.
     path("post_update", views.post_update, name="post_update"),
+    # To like/unlike a post.
+    path("toggle_like", views.toggle_like, name="toggle_like"),
     # For rendering login view.
     path("login", views.login_view, name="login"),
     # For rendering logout view.
