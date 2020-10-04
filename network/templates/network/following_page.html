@@ -35,6 +35,9 @@
 		</ul>
 	</nav> -->
 
+	<!-- A workaround to get the id of the current user. This value is used in Javascript. -->
+	<div style="display: none;" class="var_user_id">{% if user.is_authenticated %}{{ user.pk }}{% endif %}</div>
+
 {% endblock %}
 
 {% block script %}

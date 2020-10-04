@@ -12,17 +12,20 @@ class Post(models.Model):
     creator = models.ForeignKey(User, on_delete=models.CASCADE, related_name="my_posts")
     content = models.CharField(max_length=1000)
     post_timestamp = models.DateTimeField(auto_now_add=True)
-    post_likes = models.IntegerField(default=0)
+    liked_by = models.ManyToManyField("User", related_name="my_likes")
+
+    # post_likes = models.IntegerField(default=0)
 
 
-    def serialize(self):
+    def serialize(self, user_obj):
         return {
             "post_id": self.id,
             "creator_id": self.creator.pk,
             "creator": self.creator.username,
             "body": self.content,
             "timestamp": self.post_timestamp.strftime("%b %d %Y, %I:%M %p"),
-            "likes": self.post_likes
+            "like_count": self.liked_by.all().count(),
+            "is_liked": True if(user_obj in self.liked_by.all()) else False,
         }
 
     def __str__(self):

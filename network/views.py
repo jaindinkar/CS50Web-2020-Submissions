@@ -65,7 +65,7 @@ def get_all_posts(request):
         'total_pages': paginator.num_pages
     }
 
-    return JsonResponse([page_details_dict, [post.serialize() for post in page_obj]], safe=False)
+    return JsonResponse([page_details_dict, [post.serialize(request.user) for post in page_obj]], safe=False)
 
     # return JsonResponse([post.serialize() for post in page_obj], safe=False)
     # For safe = False: https://docs.djangoproject.com/en/3.1/ref/request-response/#serializing-non-dictionary-objects
@@ -158,7 +158,7 @@ def get_profile_posts(request, user_id):
         'total_pages': paginator.num_pages
     }
 
-    return JsonResponse([page_details_dict, [post.serialize() for post in page_obj]], safe=False)
+    return JsonResponse([page_details_dict, [post.serialize(request.user) for post in page_obj]], safe=False)
 
 
 
@@ -232,7 +232,7 @@ def get_following_posts(request):
         'total_pages': paginator.num_pages
     }
 
-    return JsonResponse([page_details_dict, [post.serialize() for post in page_obj]], safe=False)
+    return JsonResponse([page_details_dict, [post.serialize(request.user) for post in page_obj]], safe=False)
 
 
 @login_required
@@ -250,7 +250,7 @@ def post_update(request):
 
     try:
         post = Post.objects.get(pk=post_id)
-    except User.DoesNotExist:
+    except Post.DoesNotExist:
         return JsonResponse({"error": "Post does not exist."}, status=400)
 
     ## Check if the post belongs to the current user.
@@ -266,6 +266,47 @@ def post_update(request):
     post.save()
     
     return JsonResponse({"message": "Update successful."}, status=201)
+
+# Post-id is retreived through JSON.
+def toggle_like(request):
+    # post_update must be executed by PUT request.
+    if request.method != "PUT":
+        return JsonResponse({"error": "PUT request required to make changes."}, status=400)
+
+
+    # Extract the data from the request.
+    data = json.loads(request.body)
+    post_id = data.get("post_id")
+
+    try:
+        post = Post.objects.get(pk=post_id)
+    except Post.DoesNotExist:
+        return JsonResponse({"error": "Post does not exist."}, status=400)
+
+    is_liked = False
+
+    if request.user.is_authenticated:
+        # If user already liked the post.
+        if request.user in post.liked_by.all():
+            # Remove user from this list.
+            post.liked_by.remove(request.user)
+            is_liked = False
+        else:
+            # Add user to this list
+            post.liked_by.add(request.user)
+            is_liked = True
+
+        # Saving the changes.
+        post.save()
+
+        # Counting the likes
+        like_count = post.liked_by.all().count();
+
+        return JsonResponse({"message": "Update successful.", "like_count": like_count, "is_liked": is_liked}, status=201)
+
+    else:
+        return JsonResponse({"error": "User is not authorised for this task. Login to like/dislike a post."}, status=400)
+
 
 
 
