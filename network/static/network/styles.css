@@ -2,15 +2,24 @@
 Css for New post division in  index.html
 --------------------------------------------*/
 
+
 .new-post-main-div {
+
 	border-style: solid;
+	/*border-radius: 10px;*/
+	border-width: 5px;
+	/*border-color: lightblue;*/
+
 	/*min-height: 170px; */
 	/*margin: 40px;*/
 	padding: 10px;
-	box-shadow: 2px 4px rgba(0,0,0,0.3);
+	box-shadow: 0px 0px 4px 4px rgba(173, 216, 230,0.3);
+
+	/*background-image: repeating-linear-gradient(45deg, black 4%, white 7%);*/
 	/*width: 100%; */
 	/*overflow: auto; */
-
+	/*Light blue : 173, 216, 230*/
+	/*Light green : 158, 255, 158*/
 	max-width: 1200px;
 	margin: auto;
 	margin-top: 40px;
@@ -51,6 +60,8 @@ Css for New post division in  index.html
 	border-width: 2px;
 	border-color: black;
 
+	box-shadow: 0px 0px 4px 4px rgba(200,200,200,0.3);
+
 	padding: 10px;
 	height: 100px;
 	/*min-height: 50px;*/
@@ -64,13 +75,9 @@ Css for New post division in  index.html
 }
 
 .post-textarea:focus {
-	border-style: none;
-	border-radius: 10px;
-	box-shadow: 2px 4px rgba(0,0,0,0.3);
-
+	outline: none;
 	/*background-color: lightblue; */
 }
-
 
 .post-button {
 	margin: 10px;
@@ -80,11 +87,18 @@ Css for New post division in  index.html
 
 	box-shadow: 1px 2px rgb(0,0,0,0.3);
 	background-color: #347deb;
+	/*background-image: linear-gradient(45deg, orange,yellow, orange);*/
+	/*background: repeating-linear-gradient(45deg, red, red 5px, white 5px, white 10px, blue 10px, blue 15px, white 15px, white 20px);*/
+	/*background-image: linear-gradient(45deg, red, white, blue, white, red, white, blue);*/
+
 
 	border-style: solid;
 	border-color: #000000;
 	border-width: 1px;
-	border-radius: 10px;
+	/*border-radius: 10px;*/
+
+	font-weight: bold;
+
 
 	/*flex-grow: 1; */
 	/*felx-shrink: ; */
@@ -98,6 +112,12 @@ Css for New post division in  index.html
 
 .post-button:hover {
 	box-shadow: inset 0 1px 2px #ffffff;
+	/*color: #ffffff;*/
+	cursor: pointer;
+}
+
+.post-button:focus {
+	outline: none;
 }
 
 .post-box-endline{
@@ -197,14 +217,15 @@ Css for Recent post division in  index.html
 
 /* Css for the replacable textarea.*/
 .edit-content {
-	/*display: none; */
 	resize: none;
 	flex: 1 1 100%;
 
 	border-style: solid;
 	border-width: 2px;
-	border-color: lightblue;
+	border-color: orange;
 	border-radius: 10px;
+
+	box-shadow: 0px 0px 4px 4px rgba(255,165,0,0.3);
 
 	padding: 10px;
 
@@ -212,9 +233,13 @@ Css for Recent post division in  index.html
 	height: auto;
 
 	/* To render the new line (\n) */
-	white-space: pre-line;
+	/*white-space: pre-line;*/
 
 	background-color: white;
+}
+
+.edit-content:focus {
+	outline: none;
 }
 
 

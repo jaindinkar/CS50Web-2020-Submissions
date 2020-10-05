@@ -176,7 +176,6 @@ function loadFollowingPosts(page_no) {
 }
 
 
-
 function toggleLike(event) {
     
     // Surety check!

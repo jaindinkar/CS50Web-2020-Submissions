@@ -378,15 +378,24 @@ function initEdit(event){
     ////// ---> Info. Link : https://stackoverflow.com/questions/4793604/how-to-insert-an-element-after-another-element-in-javascript-without-using-a-lib
     post_content_divison.parentNode.insertBefore(post_edit_area, post_content_divison.nextSibling);
 
-    // 7. Changing the Edit-button text to Save.
+    // 7. Scale the text area according to the content inside it.
+    post_edit_area.setAttribute('style', 'height:' + (post_edit_area.scrollHeight) + 'px;overflow-y:hidden;');
+    post_edit_area.addEventListener("input", OnInput, false);
+
+    // 8. Changing the Edit-button text to Save.
     event.target.innerHTML = 'Save';
 
-    // 8. Interchanging the event listeners.
+    // 9. Interchanging the event listeners.
     event.target.removeEventListener("click", initEdit);
     event.target.addEventListener("click", saveEdit);
 
 }
 
+
+function OnInput() {
+    this.style.height = 'auto';
+    this.style.height = (this.scrollHeight) + 'px';
+}
 
 
 function saveEdit(event){
