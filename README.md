@@ -7,11 +7,11 @@ If you don't know the Academic policy acquaint yourself with it and here is the 
 
 This repo contains 5 projects starting from project 0 to project 4:
 
-Project 0: Search
-Project 1: Wiki
-Project 2: Auction
-Project 3: Mail
-Project 4: Network
+-Project 0: Search
+-Project 1: Wiki
+-Project 2: Auction
+-Project 3: Mail
+-Project 4: Network
 
 All are completed and accepted solutions. If you are only looking for the resources that you might need for completing the projects then you can take a look at the readme.md file placed in each folder, in the end of the file there is a list of resources that I used to complete the assignments. 
 
