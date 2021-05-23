@@ -1,0 +1,247 @@
+/*------------------ 
+CSS for emails-view 
+--------------------*/
+
+#emails-view {
+	/*Characteristics*/
+    /*none*/
+
+    /*Positioning*/
+    /*margin: 40px 60px;*/
+    overflow: auto;
+
+    /*Test*/
+    /*background-color: green;*/
+
+    /*margin: 20px 30px;*/
+    /*position: fixed; */
+    /*width: 100%; */
+    /*max-width: 1140px; */
+    /*min-width: 200px; */
+    /*width: 96%; */
+    /*display: block;*/
+}
+
+.mail-div {
+    
+    /*Characteristics*/
+    border-style: solid;
+    border-width: 1px;
+    border-radius: 20px;
+    cursor: pointer;
+    
+    /*Positioning*/
+    margin: 10px 10px;
+    overflow: auto;  /*Very Important*/
+    padding-top: 5px;
+    padding-bottom: 5px;
+    padding-right: 5px;
+    padding-left: 10px;
+
+    /*Test*/
+    /*background-color: orange;*/
+    
+    /*margin-top: 5px; */
+    /*position: relative;*/
+    /*top:0;*/
+    /*left:0;*/
+    /*height:100%;*/
+    /*display: block;*/
+    /*width:100%; */
+    /*clear: both; */
+    /*position: fixed; */
+}
+
+.mail-div:hover {
+    
+    /*Characteristics*/
+    box-shadow: inset 0 3px 3px rgba(0,0,0,0.3);
+    border: 2px solid #f5c62c;    /*#4d90fe*/
+}
+
+.mail-id {
+	
+    /*Characteristics*/
+    font-family: arial, sans-serif;
+    font-weight: bold;
+    color: #000000;
+
+    /*Positioning*/
+    float: left;
+    min-width: 220px;
+    width: 15%;
+    /*overflow: auto;*/
+    padding: 5px 5px;
+    vertical-align: middle;
+
+    /*Test*/
+    /*background: red;*/
+
+    /*width: 33%;
+    /*height: 50%;*/
+    /*top: 25%;*/
+    /*left:5%;*/
+    /*margin: 0 auto;*/
+    /*position: relative;*/
+    /*margin-left: 10px;*/
+    /*display: table-cell; */
+    /*height: 42px;*/
+    /*min-width: 167px; */
+    /*line-height: 16px; */
+    /*vertical-align: middle; */
+}
+
+.mail-sub {
+
+    /*Characteristics*/
+    font-family: arial, sans-serif;
+    color: #454545;
+    font-weight: normal;
+
+    /*Positioning*/
+    float: left;
+    vertical-align: middle;
+    min-width: 400px;
+    width: 33%;
+    padding: 5px 5px;
+    vertical-align: middle;
+
+    /*Test*/
+    /*background: yellow;*/
+
+    /*width: 33%;*/
+    /*height: 50%;*/
+    /*top: 25%;*/
+    /*left:5%;*/
+    /*margin: 0 auto;*/
+    /*position: relative;*/
+    /*display: table-cell; */
+    /*min-width: 167px; */
+    /*min-height: 41px;*/
+}
+
+.date-time {
+
+    /*Characteristics*/
+    font-family: arial, sans-serif;
+    color: #454545;
+    font-weight: bold;
+
+    /*Positioning*/
+    float: right;
+    min-width: 230px;
+    width: 15%;
+    padding: 5px 5px;
+    vertical-align: middle;
+
+    /*Test*/
+    /*background: pink;*/
+
+    /*min-width: 160px; */
+    /*margin: 0 0 8px 1%;*/
+    /*padding-left: 5px;*/
+    /*vertical-align: middle; */
+    /*position: relative; */
+    /*display: table-cell; */
+    /*width: 33%;*/
+    /*height: 50%;*/
+    /*top: 25%;*/
+    /*right: 5%;*/
+    /*margin: 0 auto;*/
+    /*position: relative;*/
+    /*text-align: right; */
+    /*display: inline-block;*/
+}
+
+
+/*-------------------- 
+CSS for compose-view 
+----------------------*/
+
+textarea {
+    min-height: 400px;
+    max-height: 400px;
+}
+
+.submit-button {
+	margin: 10px;
+}
+
+
+/*------------------ 
+CSS for email-view 
+--------------------*/
+
+#email-view {
+
+	/*Positioning*/
+	overflow: auto;
+	margin: 40px 40px;
+	padding: 5px;
+
+	/*Test*/
+	/*background-color: green;*/
+}
+
+.mail-view-internal-div {
+
+	/*Characteristics*/
+	border-style: solid;
+
+	/*Positioning*/
+	padding: 10px;
+	margin-bottom: 10px;
+	min-height: 400px;
+
+	/*Test*/
+	/*background-color: orange;*/
+}
+
+.mail-view-from {
+
+	/*Test*/
+	/*background-color: red;*/
+}
+
+.mail-view-to {
+
+	/*Test*/
+	/*background-color: yellow;*/
+}
+
+.mail-view-sub {
+
+	/*Test*/
+	/*background-color: lightblue;*/
+}
+
+.mail-view-date-time {
+
+	/*Test*/
+	/*background-color: pink;*/
+}
+
+.mail-view-details-endline {
+	margin-bottom: 2px;
+}
+
+.mail-view-body {
+  
+	/* To render the new line (\n) */
+	white-space: pre-line;
+
+	/*Test*/
+	/*background-color: aqua;*/
+}
+
+.archive-button {
+	margin: 10px;
+}
+
+.reply-button {
+	margin: 10px;
+}
+
+.unarchive-button {
+	margin: 10px;
+}
