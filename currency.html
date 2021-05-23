@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Currency Exchange</title>
+	<script type="text/javascript">
+		
+		document.addEventListener('DOMContentLoaded', function() {
+
+			document.querySelector('form').onsubmit = function() {
+
+				// fetch returns a promise(JavaScript term) that some thing is going to come but not immediately.
+				fetch('https://api.exchangeratesapi.io/latest?base=INR')
+				// Converting the response to JSON.
+				.then(response => response.json())
+				// Printing the JSON data to console.
+				.then(data => {
+
+					const currency = document.querySelector('#currency').value.toUpperCase();
+					const rate = data.rates[currency];
+
+					if(rate !== undefined){
+						document.querySelector('#result').innerHTML = `1 INR is equal to ${rate.toFixed(3)} ${currency}.`;
+					} else{
+						document.querySelector('#result').innerHTML = `Invalid Currency~!!`;
+					}
+					
+				});
+				// Error in API would be shown in console.
+				.catch(error => {
+					console.log('Error:', error);
+				});
+
+				return false;
+			}
+
+			
+		});
+
+	</script>
+</head>
+<body>
+
+	<form>
+		<input id="currency" type="text" placeholder="Currency">
+		<input type="submit" value="Convert">
+	</form>
+
+	<div id="result">
+		
+
+	</div>
+
+</body>
+</html>
