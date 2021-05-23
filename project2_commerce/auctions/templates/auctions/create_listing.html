@@ -1,0 +1,42 @@
+{% extends "auctions/layout.html" %}
+
+{% load static %}
+
+{% block body %}
+
+	<div class="container">
+
+		<h1 style="text-align: center; color: orange;">Create New Listing</h1>
+
+
+		{% if form %}
+
+			<form action="{% url 'create_listing' %}" method="post">
+				{% csrf_token %}
+				{{ form }}
+				<input type="submit" value="Submit" style="margin-top: 20px; position: relative; left: 47.5%;">
+			</form>
+
+		{% endif %}
+
+
+
+		{% if message %}
+
+			<div class="create-listing-message">{{ message }}</div>
+
+		{% endif %}
+		
+
+	</div>
+
+
+
+	
+	
+
+	
+	
+
+
+{% endblock %}

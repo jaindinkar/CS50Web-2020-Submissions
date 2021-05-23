@@ -1,0 +1,263 @@
+@font-face {
+	font-family: Google-Roboto;
+	src: local("/fonts/google-roboto.woff2");
+}
+
+body {
+	margin: 0;
+	padding: 0;
+	font-family: Google-Roboto;
+}
+
+header {
+	background: #f1f1f1;
+	background-size: cover;
+	background-position: center;
+	height: 50px;
+}
+
+nav {
+	position: fixed;
+	width: 100%;
+	line-height: 25px;
+}
+
+nav ul {
+	float: right;
+	margin: 0;
+	padding-left: 0;
+}
+
+nav ul li {
+	display: inline-block;
+	padding: 16px 32px;
+}
+
+nav ul li a {
+	text-decoration: none;
+	color: #00000;
+	font-size: 25px;
+}
+
+nav ul li a img {
+	height: 20px;
+}
+
+
+/* Navbar done */
+
+
+
+
+/* Google Logo CSS */
+
+.google-logo {
+
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+	padding-top: 125px;
+	text-align: center;
+
+	height: auto;
+    vertical-align: bottom;
+
+}
+
+/* Google Logo Done */
+
+
+/* This part is for google images page */
+
+.logo-subtext {
+    color: #4285f4;
+    font: 16px/16px Google-Roboto, arial, sans-serif;
+    left: 105px;
+    position: relative;
+    top: -16px;
+    white-space: nowrap;
+
+    display: block;
+    text-align: -webkit-center;
+}
+
+/* Done */
+
+/* Search form starts */
+
+div.search-form-lvl-1 {
+
+	margin-top: 20px;
+	min-width: 400px;
+	position: absolute;
+	width: 100%;
+	display: block;
+}
+
+
+.search-form-lvl-2 {
+	max-width: none;
+	width: auto;
+    margin: 0 32px;
+    background: none;
+    display: block;
+}
+
+
+.search-form-lvl-3 {
+	width: auto;
+    max-width: 584px;
+    position: relative;
+    margin: 0 auto;
+    display: block;
+}
+
+.search-form-lvl-3-search-bar {
+    width: auto;
+    background: #fff;
+    display: flex;
+    border: 1px solid #dfe1e5;
+    box-shadow: none;
+    border-radius: 24px;
+    /*z-index: 3;*/
+    height: 44px;
+    margin: 0 auto;
+    /*width: 482px;*/
+    /*width: 582px;*/
+    display: block;
+}
+
+.search-form-lvl-3-search-bar-lvl-1 {
+	flex: 1;
+    display: flex;
+    padding: 5px 8px 0px 16px;
+    display: block;
+}
+
+
+/* Internal elements of search text bar are not added now */
+
+/*Search Icon*/
+
+.search-form-lvl-3-search-bar-lvl-1-icon-fix-lvl-1 {
+	display: flex;
+    align-items: center;
+    padding-right: 13px;
+    margin-top: 0px;
+    display: block;
+}
+
+.search-form-lvl-3-search-bar-lvl-1-icon-fix-lvl-2 {
+    margin: auto;
+    display: block;
+}
+
+.search-form-lvl-3-search-bar-lvl-1-icon-fix-lvl-3 {
+    margin-top: 3px;
+    color: #9aa0a6;
+    height: 20px;
+    width: 20px;
+
+    display: inline-block;
+    fill: currentColor;
+    height: 24px;
+    line-height: 24px;
+    position: relative;
+    width: 24px;
+}
+
+.search-form-lvl-3-search-bar-lvl-1-icon-fix-lvl-3 svg {
+    display: block;
+    height: 100%;
+    width: 100%;
+}
+
+/*svg:not(:root) {
+    overflow: hidden;
+}*/
+
+
+/*Search Text bar*/
+
+.search-form-lvl-3-search-bar-lvl-1-text-box-lvl-1 {
+	display: flex;
+    flex: 1;
+    flex-wrap: wrap;
+}
+
+.search-form-lvl-3-search-bar-lvl-1-text-box-lvl-2 {
+    background-color: transparent;
+    border: none;
+    margin: 0;
+    padding: 5px 20px 5px 30px;
+    color: rgba(0,0,0,.87);
+    /*word-wrap: break-word;*/
+    outline: none;
+    display: flex;
+    flex: 100%;
+    /*-webkit-tap-highlight-color: transparent;*/
+    margin-top: -37px;  /*Important*/
+    height: 34px;
+    font-size: 16px;
+    font: 16px arial,sans-serif;
+    line-height: 34px;
+    height: 34px !important;
+}
+
+/* Search bar CSS ends */
+
+
+.search-form-lvl-3-search-buttons {
+    height: 70px;
+	padding-top: 18px;
+    top: 53px;
+    z-index: 0;
+    display: block;
+}
+
+.search-form-lvl-3-search-buttons input[type="submit"] {
+    background-image: -webkit-linear-gradient(top,#f5f5f5,#f1f1f1);
+    background-color: #f2f2f2;
+    border: 1px solid #f2f2f2;
+    border-radius: 4px;
+    color: #5F6368;
+    font-family: arial,sans-serif;
+    font-size: 14px;
+    margin: 11px 4px;
+    padding: 0 16px;
+    line-height: 27px;
+    height: 36px;
+    min-width: 54px;
+    text-align: center;
+    cursor: pointer;
+    user-select: none;
+}
+
+.search-form-lvl-3-search-buttons input[type="submit"]:hover {
+    box-shadow: 0 1px 1px rgba(0,0,0,0.1);
+    background-image: -webkit-linear-gradient(top,#f8f8f8,#f1f1f1);
+    background-color: #f8f8f8;
+    border: 1px solid #c6c6c6;
+    color: #222;
+}
+
+input {
+    -webkit-writing-mode: horizontal-tb !important;
+    text-rendering: auto;
+    letter-spacing: normal;
+    word-spacing: normal;
+    text-transform: none;
+    text-indent: 0px;
+    text-shadow: none;
+    display: inline-block;
+    text-align: start;
+    appearance: textfield;
+    -webkit-rtl-ordering: logical;
+    cursor: text;
+    margin: 0em;
+    font: 400 13.3333px Arial;
+    padding: 1px 2px;
+    border-width: 2px;
+    border-style: inset;
+    border-image: initial;
+}

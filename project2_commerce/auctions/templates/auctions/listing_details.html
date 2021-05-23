@@ -1,0 +1,213 @@
+{% extends "auctions/layout.html" %}
+
+{% load static %}
+
+{% block body %}
+	
+	<!-- Single Listing -->
+
+	<section class="single-product">
+
+		<div class="container">
+			
+			<div class="row row-class">
+
+				<div class="col-md-5">
+
+					<!-- Used for Image -->
+
+					<img src="{{ listing.listing_image }}" class="product-image shadow-lg p-3 mb-5 bg-white rounded" style="width: 400px;">
+
+				</div>
+
+
+				<div class="col-md-7">
+
+					{% if listing.listing_is_active %}
+
+						<p class="active-product text-center">ACTIVE</p>
+
+					{% else %}
+
+						<p class="sold-product text-center">SOLD</p>
+
+					{% endif %}
+
+					
+					<h2>{{ listing.listing_title }}</h2>
+					<p>Product Code: AUC2020/{{ listing.id }}</p>
+					<p>Starting Bid USD ${{ listing.listing_start_bid }}</p>
+
+					{% if listing.listing_is_active %}
+
+						<p class="price">Current Bid price USD ${{ current_bid_price }}</p>
+
+					{% else %}
+
+						<p class="price">Sold for USD ${{ current_bid_price }} </p>
+
+						{% if user.username == current_winning_bidder %}
+
+							<p class="price">-- You have won this listing {{ current_winning_bidder }}-- </p>
+
+						{% endif %}
+
+					{% endif %}
+
+					<p><b>Status: </b>{% if listing.listing_is_active %} Active {% else %} Inactive/Sold {% endif %}</p>
+					
+					<p><b>Category: </b>{{ listing.listing_category }}</p>
+					
+					
+
+					{% if is_authenticated %}
+
+						{% if listing.listing_is_active %}
+							<form action="{% url 'bid' listing.id %}" method="post">
+								{% csrf_token %}
+								{{ bidForm }}
+
+								<input type="submit" value="Submit">
+							</form>
+
+							{% if message %}
+
+							<p style="font-weight: bold; color: {{ messageColor }};">{{ message }}</p>
+
+							{% endif %}
+
+						{% endif %}
+						
+
+						<!-- if item is already in the users watchlist render a remove from watchlist button -->
+						<!-- else  render a add to watchlist button. -->
+
+						{% if is_watching %}
+							<form action="{% url 'remove_from_watchlist' listing.id %}" method="post">
+								{% csrf_token %}
+														
+								<!-- <button name="foo" value="upvote">Upvote</button> -->
+								<button name="foo" value="{{ listing_id }}" type="submit" class="btn btn-primary">Remove from watchlist</button>
+
+							</form>
+
+						{% else %}
+							<form action="{% url 'add_to_watchlist' listing.id %}" method="post">
+								{% csrf_token %}
+														
+								<!-- <button name="foo" value="upvote">Upvote</button> -->
+								<button name="foo" value="{{ listing_id }}" type="submit" class="btn btn-primary">Add to watchlist</button>
+
+							</form>
+						{% endif %}
+
+
+						{% if is_creator %}
+
+							{% if listing.listing_is_active %}
+
+								<form action="{% url 'close' listing.id %}" method="post">
+									{% csrf_token %}
+															
+									<!-- <button name="foo" value="upvote">Upvote</button> -->
+									<button name="foo" value="{{ listing_id }}" type="submit" class="btn btn-primary">Close this listing</button>
+
+								</form>
+
+							{% endif %}
+
+						{% endif %}
+
+
+					{% else %}
+
+						<p><b>Log In / Register to bid on this listing.</b></p>
+					
+					{% endif %}
+
+
+				</div>
+				
+
+			</div>
+
+
+		</div>
+		
+
+	</section>
+
+
+	<!------------------ Product Description -------------------->
+
+	<section class="product-description">
+		
+		<div class="container">
+
+			<h6>Product Description</h6>
+
+			<p>{{ listing.listing_description }}</p>
+			
+			<hr>
+
+		</div>
+		
+
+	</section>
+
+
+	<!------------------ Comments Section -------------------->
+
+	<div class="container">
+		<h3 style="color: orange;">Recent comments:</h2>
+	</div>
+
+	{% for comment in comments %}
+
+		<div class="container">
+			<div class="comment-container">
+				<!-- <img src="bandmember.jpg" alt="Avatar" style="width:90px"> -->
+				<p><span>{{ comment.commentator }}</span>At {{ comment.comment_time }} on {{ comment.comment_date }}</p>
+				<p>{{ comment.comment_text }}</p>
+			</div>
+		</div>
+
+
+	{% empty %}
+
+		{% if is_authenticated %}
+
+		<div class="container">
+			<div class="comment-container">
+				<p style="text-align: center;"><span>No comments yet, you will be first to comment!!</span></p>
+			</div>
+		</div>
+
+		{% else %}
+
+		<div class="container">
+			<div class="comment-container">
+				<p style="text-align: center;"><span>No comments yet, Login to comment.</span></p>
+			</div>
+		</div>
+
+		{% endif %}
+
+
+	{% endfor %}
+
+
+	{% if is_authenticated %}
+		<div class="container" style="margin-top: 40px;">
+			<form action="{% url 'comment' listing.id %}" method="post">
+				{% csrf_token %}
+				{{ commentForm }}
+
+				<input type="submit" value="Submit" style="position: relative; left: 95%;">
+			</form>
+		</div>
+
+	{% endif %}
+
+
+{% endblock %}

@@ -1,0 +1,27 @@
+{% extends "encyclopedia/layout.html" %}
+
+{% block title %}
+    Create New Entry - Encyclopedia
+{% endblock %}
+
+{% block body %}
+    <h1>Create New Page</h1>
+
+    {% if success %}
+    	<p>Success: Created a new entry with title : {{ title }}</p>
+    {% endif %}
+
+    <form action="{% url 'encyclopedia:create' %}" method="post" id="new_entry_form">
+    	{% csrf_token %}
+        <input type="text" name="title" placeholder="Enter Title">
+        <input type="submit">
+    </form>
+
+    {% if error %}
+    	<p> Error: "{{ old_title }}" Entry with this name already exists, choose another one.</p>
+    {% endif %}
+
+    <textarea name="content" form="new_entry_form">{% if old_content %}{{ old_content }}{% else %}Enter markdown text here...{% endif %}</textarea>
+
+{% endblock %}
+

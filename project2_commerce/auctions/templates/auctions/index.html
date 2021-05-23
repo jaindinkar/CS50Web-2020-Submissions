@@ -1,0 +1,157 @@
+{% extends "auctions/layout.html" %}
+
+{% load static %}
+
+{% block body %}
+
+
+<!----------------------- Active Listings ------------------------>
+
+    <section class="listings">
+
+        <div class="container">
+
+
+            <div class="grey-box">
+
+                <div class="title-box">
+                    
+                    <h2>Active Listings</h2> 
+
+                </div> <!-- title-box -->
+
+            </div> <!-- grey-box -->
+
+
+            {% for listing, currentPrice in activeListingsDictonary.items %}
+
+                <div class="card mb-3 shadow p-3 mb-5 bg-white rounded">
+
+                    <div class="row">
+
+                        <div class="col-md-2.5">
+                            
+                            <a href="{% url 'listing_page' listing.id %}">
+                                <img src="{{ listing.listing_image }}" class="card-img shadow bg-white rounded" alt="..." style="width: 200px; margin-bottom: 3px; margin-left: 15px;">
+                            </a>
+
+                        </div>
+
+                        <div class="col-md-9">
+
+                            <div class="card-body">
+
+                                <a href="{% url 'listing_page' listing.id %}">
+                                    <h5 class="card-title">{{ listing.listing_title }}</h5>
+                                </a>
+                                
+                                <p class="card-text">{{ listing.listing_description }}</p>
+
+                                <h6> 
+                                    Current Bid Price: $ {{ currentPrice }}
+
+                                </h6>
+                                
+                                <p class="card-text" style="position: absolute; bottom: 0;"><small class="text-muted">Added on {{ listing.creation_date }} | {{ listing.creation_time }} | By: {{ listing.creator.username }}</small></p>
+                            
+                            </div>
+                       
+                        </div>
+                    
+                    </div>
+                
+                </div>
+
+            {% empty %}
+
+                    <div>No Items to display.</div>
+
+            {% endfor %}
+
+
+
+        </div> <!-- container -->
+
+    </section> <!-- listings -->
+
+
+
+
+
+
+<!----------------------- Inactive Listings ------------------------>
+
+
+    <section class="listings">
+
+        <div class="container">
+
+
+            <div class="grey-box">
+
+                <div class="title-box">
+                    
+                    <h2>Closed Listings</h2> 
+
+                </div> <!-- title-box -->
+
+            </div> <!-- grey-box -->
+
+
+            {% for listing, soldPrice in inactiveListingsDictonary.items %}
+
+                <div class="card mb-3 shadow p-3 mb-5 bg-white rounded">
+
+                    <div class="row">
+
+                        <div class="col-md-2.5">
+                            
+                            <a href="{% url 'listing_page' listing.id %}">
+                                <img src="{{ listing.listing_image }}" class="card-img shadow bg-white rounded" alt="..." style="width: 200px; margin-bottom: 3px; margin-left: 15px;">
+                            </a>
+
+                        </div>
+
+                        <div class="col-md-9">
+
+                            <div class="card-body">
+
+                                <a href="{% url 'listing_page' listing.id %}">
+                                    <h5 class="card-title">{{ listing.listing_title }}</h5>
+                                </a>
+                                
+                                <p class="card-text">{{ listing.listing_description }}</p>
+
+                                <h6> 
+                                    Sold for: $ {{ soldPrice }}
+
+                                </h6>
+                                
+                                <p class="card-text" style="position: absolute; bottom: 0;"><small class="text-muted">Added on {{ listing.creation_date }} | {{ listing.creation_time }} | By: {{ listing.creator.username }}</small></p>
+                            
+                            </div>
+                       
+                        </div>
+                    
+                    </div>
+                
+                </div>
+
+            {% empty %}
+
+                    <div>No Items to display.</div>
+
+            {% endfor %}
+
+
+
+        </div> <!-- container -->
+
+    </section> <!-- listings -->
+
+
+{% endblock %}
+
+
+
+
